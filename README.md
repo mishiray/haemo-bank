@@ -24,12 +24,15 @@ Our applications gives them this as value:
 Thing to note:
 1. Both donors and recipients should be offered the option to create account
 2. But only those with accounts can request, but shoeld also be able to donate at any time as well
-3. We should be able to perform some analysis on the blood maybe make it app do the matching( If you have type O blood, you’re called a universal donor. If you have type AB blood, you can receive any type of blood and you’re called a universal recipient), and make an analysis on the reasons for the bood transfer( Some examples of reasons
+3. We should be able to perform some analysis on the blood maybe make it app do the matching( If you have type O blood, you’re called a universal donor. If you have type AB blood, you can receive any type of blood and you’re called a universal recipient), and make an analysis on the reasons for the bood transfer. 
+Some examples of reasons
 - Major surgery or a serious injury and you need to replace lost blood
 - You’ve experienced bleeding in your digestive tract from an ulcer or other condition
 - You have an illness like leukemia or kidney disease that causes anemia (not enough healthy red blood cells)
 - You’ve received cancer treatments like radiation or chemotherapy
-- You have a blood disorder or severe liver problems) the analysis can be Maybe ranking in order of importance so the centre know who needs blood most urgently
+- You have a blood disorder or severe liver problems) 
+
+The analysis can be Maybe ranking in order of importance so the centre know who needs blood most urgently
 
 
 Okayyyyy, so guys we can start with this breakdown

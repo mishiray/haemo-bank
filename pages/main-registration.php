@@ -11,23 +11,23 @@
 			<div class="row">
 				<div class="col-12">
 				    <label for="inputName" class="">Full Name</label>
-				    <input type="text" id="inputName" class="form-control" placeholder="Full Name" required>
+				    <input type="text" id="inputName" name="name" class="form-control" placeholder="Full Name" required>
 				</div>
 				<div class="col-sm-6">
 					<label for="inputPhoneNumber" class="">Phone Number</label>
-					<input type="number" id="inputPhoneNumber" class="form-control" placeholder="Phone Number" required>
+					<input type="number" id="inputPhoneNumber" name="phone" class="form-control" placeholder="Phone Number" required>
 				</div>
 				<div class="col-sm-6">
 					<label for="inputEmail" class="">Email Address</label>
-					<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
+					<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
 				</div>
 				<div class="col-12">
 				    <label for="inputAddress" class="">Address</label>
-				    <textarea id="inputName" class="form-control" required></textarea>
+				    <textarea id="inputName" name="address" class="form-control" required></textarea>
 				</div>
 				<div class="col-12">
 				    <label for="inputBloodGroup" class="">Blood Group</label>
-				    <select class="form-select" id="inputBloodGroup" required>
+				    <select class="form-select" name="bloodgroup" id="inputBloodGroup" required>
 		                <option value="">Choose...</option>
 		                <option value="o-plus">O+</option>
 		                <option value="o-minus">O-</option>

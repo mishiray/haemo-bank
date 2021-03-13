@@ -1,3 +1,11 @@
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
 body {
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
@@ -6,7 +14,6 @@ body {
     line-height: 1.5;
     color: #212529;
     background-color: #fff;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -81,7 +88,7 @@ label {
 }
 
 textarea.form-control {
-    min-height: calc(1.5em + .75rem + 2px);
+    min-height: calc(3em + 1.5rem + 2px);
     resize: vertical;
 }
 
@@ -149,4 +156,8 @@ textarea.form-control {
 
 .mt-2 {
 	margin-top: 2rem;
+}
+
+.text-center {
+	text-align: center;
 }

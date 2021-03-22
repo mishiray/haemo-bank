@@ -3,22 +3,8 @@
 <head>
 	<title>Register a Donor Page</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="../script.js"></script>
 </head>
 <body>
-	<div class="topnav" id="myTopnav">
-		<a class="navbar-brand" href="#">Haemo-Bank</a>
-		<div class="float-right">
-		  <a href="#" class="active">Home</a>
-		  <a href="#">Login</a>
-		  <a href="#">Register</a>
-		  <a href="#">About</a>
-		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		    <i class="fa fa-bars"></i>
-		  </a>
-		</div>
-	</div>
 	<div class="container">
 		<h3 class="text-center">Register a donor</h3>
 		<div class="col-10" style="margin: 0 auto;">

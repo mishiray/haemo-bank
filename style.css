@@ -1,4 +1,12 @@
-    body {
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+body {
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1rem;
@@ -6,11 +14,11 @@
     line-height: 1.5;
     color: #212529;
     background-color: #fff;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
 	width: auto;
+    padding: 50px 0;
 }
 
 .row {
@@ -46,7 +54,7 @@ label {
 
 .form-control {
     display: block;
-    width: 100%;
+    width: 95%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -65,12 +73,30 @@ label {
     width: 100%;
 }
 
-@media (min-width: 576px) {
-	.col-sm-6 {
+.col-8 {
+    flex: 0 0 auto;
+    width: 66.666%;
+}
+
+.col-10 {
+    flex: 0 0 auto;
+    width: 83.333%;
+}
+
+@media (max-width: 767px) {
+	.col-sm {
 	    flex: 0 0 auto;
-	    width: 48%;
+	    width: 100%;
 	}
 }
+
+@media (min-width: 768px) {
+    .col-sm {
+        flex: 0 0 auto;
+        width: 48%;
+    }
+}
+
 
 .pr-1 {
 	padding-right: 1rem;
@@ -81,13 +107,17 @@ label {
 }
 
 textarea.form-control {
-    min-height: calc(1.5em + .75rem + 2px);
+    min-height: calc(3em + 1.5rem + 2px);
     resize: vertical;
+}
+
+form {
+    padding-top: 50px;
 }
 
 .form-select {
     display: block;
-    width: 100%;
+    width: 98%;
     padding: .375rem 2.25rem .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -121,6 +151,9 @@ textarea.form-control {
 .w-100 {
     width: 100%!important;
 }
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
 .btn-group-lg>.btn, .btn-lg {
     padding: .5rem 1rem;
     font-size: 1.25rem;
@@ -130,6 +163,11 @@ textarea.form-control {
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
 }
 @media (prefers-reduced-motion: reduce) {
 	.btn {
@@ -149,4 +187,8 @@ textarea.form-control {
 
 .mt-2 {
 	margin-top: 2rem;
+}
+
+.text-center {
+	text-align: center;
 }

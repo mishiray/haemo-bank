@@ -34,5 +34,11 @@ Some examples of reasons
 
 The analysis can be Maybe ranking in order of importance so the centre know who needs blood most urgently
 
+Table sturcture for the app
+
+1. donors: id, name, gender, dob, email, phone, address, blooddetails(perhaps in json format), status, dateadded
+2. recipients: id, name, gender, dob, email, phone, address, bloodrequestdetails, status, dateadded
+3. userprofile: id, name, gender, dob, email, phone, address, userrole, username, password, status, dateadded
+4. transaction: id, recipientid, donorid, blooddetails, status,  dateadded
 
 Okayyyyy, so guys we can start with this breakdown

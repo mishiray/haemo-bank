@@ -1,4 +1,4 @@
-html, body, {
+html, body{
     position:fixed;
     top:0;
     bottom:0;
@@ -164,6 +164,11 @@ form {
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
+.btn-warning {
+    color: #fff;
+    background-color: #c1df1c;
+    border-color: #c1df1c;
+}
 .btn-primary:hover {
     color: #fff;
     background-color: #0069d9;
@@ -193,6 +198,28 @@ form {
 	text-align: center;
 }
 
+/* styles for colors*/
+.danger{
+    color: white;
+    background-color: rgb(182, 59, 59);
+    margin: 10px;
+    padding: 2px 2px;
+    padding-left: 10px;
+}
+.info{
+    color: white;
+    background-color: rgb(99, 91, 207);
+    margin: 10px;
+    padding: 2px 2px;
+    padding-left: 10px;
+}
+.success{
+    color: white;
+    background-color: rgb(63, 182, 59);
+    margin: 10px;
+    padding: 2px 2px;
+    padding-left: 10px;
+}
 .navbar-brand {
     color: #fff;
     padding-top: .3125rem;

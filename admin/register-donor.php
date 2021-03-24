@@ -2,23 +2,9 @@
 <html>
 <head>
 	<title>Register a Donor Page</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="../script.js"></script>
+	<link rel="stylesheet" type="text/css" href="includes/style.css">
 </head>
 <body>
-	<div class="topnav" id="myTopnav">
-		<a class="navbar-brand" href="#">Haemo-Bank</a>
-		<div class="float-right">
-		  <a href="#" class="active">Home</a>
-		  <a href="#">Login</a>
-		  <a href="#">Register</a>
-		  <a href="#">About</a>
-		  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		    <i class="fa fa-bars"></i>
-		  </a>
-		</div>
-	</div>
 	<div class="container">
 		<h3 class="text-center">Register a donor</h3>
 		<div class="col-10" style="margin: 0 auto;">
@@ -83,6 +69,11 @@
 						</div>
 					</div>
 				</div>
+				<?php 
+                    if(!empty($fail)){
+                        echo '<div class="info" style="vertical-align: middle; align-self: center; width: 50% !important; "><h3>Messages</h3> '.$fail.'</div>';
+                    }
+                ?>
 			    <button class="w-100 mt-2 btn btn-primary btn-lg" type="submit">Submit</button>
 			</form>
 		</div>

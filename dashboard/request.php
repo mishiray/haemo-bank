@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>Blood Donation Request Page</title>
-	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="includes/style.css">
 </head>
 <body>
 	<div class="container">
-		<h3 class="text-center">Make a donation request</h3>
+		<h3 class="text-center">Make a request</h3>
 		<div class="col-8" style="margin: 0 auto;">
 			<form>
 				<div class="row">

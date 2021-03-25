@@ -114,7 +114,12 @@
                         echo '<div class="danger" style="vertical-align: middle; align-self: center; width: 50% !important; "><h3>Error Messages</h3> '.$fail.'</div>';
                     }
                 ?>
-			    <button class="w-100 btn mt-2 btn-primary btn-lg" name="login" type="submit">Login</button>
+			    <button class="w-100 btn mt-2 btn-maroon btn-lg" name="login" type="submit">Login</button><div class="row">
+					<div class="col">
+						<p class="mt-2 ">Don't have an account?</p>
+						<a href="main-registration.php" class="w-100 btn btn-md btn-success">Register Now</a>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

@@ -9,7 +9,10 @@
 
 	//check if submit is clicked
 	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["register"])){
-		
+		$posts = (object)$_POST;
+		$err = 0;
+		$fail = '';
+
 		// Check if email empty
 		if(empty(trim($_POST["email"]))){
 			$fail .= "<p>Please enter email.</p>";
@@ -27,10 +30,12 @@
 			}
 		}
 
+		$posts->password = base64_encode($posts->password);
 		if($err == 0){
 
 			//insert query
-			$query = "";
+			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `age`, `blood_group`, `password`) VALUES 
+										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->age','$posts->blood_group','$posts->password')";
 
 			if(mysqli_query($conn, $sql)){
 				$fail .= "<p>You have successfully registered. Please login</p>";
@@ -58,7 +63,7 @@
 	<div class="container">
 		<h3 class="text-center">Register with us now</h3>
 		<div class="col-10" style="margin: 0 auto;">
-			<form>
+			<form method="POST" >
 				<div class="row">
 					<div class="col-12">
 					    <label for="inputName" class="">Full Name</label>
@@ -99,7 +104,6 @@
 					    <input type="text" id="password" name="password" class="form-control" required>
 					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(6)">Generate Password</button>
 					</div>
-					<span id="showpassword"></span>
 					<!--
 					<div class="col-12">
 					    <label for="inputOccupation" class="">Occupation</label>
@@ -123,7 +127,13 @@
 					</div>
 					-->
 				</div>
-			    <button class="w-100 mt-2 btn btn-primary btn-lg" name="register" type="submit">Register</button>
+			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Register</button>
+				<div class="row">
+					<div class="col">
+						<p class="mt-2 ">Already have an account?</p>
+						<a href="login.php" class="w-100 btn btn-md btn-success">Login</a>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

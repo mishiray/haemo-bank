@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Register a Donor Page</title>
-	<link rel="stylesheet" type="text/css" href="includes/style.css">
-</head>
-<body>
+<?php 
+	$title = "Register a donor";
+?>
+<?php include "top.php"?>
+<!-- start here-->
 	<div class="container">
 		<h3 class="text-center">Register a donor</h3>
 		<div class="col-10" style="margin: 0 auto;">
@@ -78,5 +76,5 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+<!-- end here-->
+<?php include "buttom.php"?>

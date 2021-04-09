@@ -1,4 +1,5 @@
 <?php 
+	$title = 'Main Registration';
 
 	//database connection
 	require_once "config.php";
@@ -49,17 +50,10 @@
 		}
 
 	}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registration Page</title>
-	<link rel="stylesheet" type="text/css" href="includes/style.css">	
-	<script src="includes/script.js"></script>
 
-</head>
-<body>
-	<?php include "navbar.php"?>
+?>
+<?php include "top.php"?>
+<!-- start main coding here -->
 	<div class="container">
 		<h3 class="text-center">Register with us now</h3>
 		<div class="col-10" style="margin: 0 auto;">
@@ -137,5 +131,5 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+<!-- end main coding here -->
+<?php include "buttom.php"?>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Blood Donation Request Page</title>
-	<link rel="stylesheet" type="text/css" href="includes/style.css">
+	<link rel="stylesheet" type="text/css" href="../includes/style.css">
 </head>
 <body>
 	<div class="container">

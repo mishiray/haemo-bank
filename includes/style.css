@@ -1,9 +1,10 @@
-html, body{
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+html,
+body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 body {
@@ -17,12 +18,12 @@ body {
 }
 
 .container {
-	width: auto;
+    width: auto;
     padding: 50px 0;
 }
 
 .row {
-	display: flex;
+    display: flex;
     flex-wrap: wrap;
     margin-top: calc(1rem * -1);
     margin-right: calc(1rem/ -2);
@@ -37,19 +38,19 @@ body {
 }
 
 .form-group {
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 label {
-	text-align: left !important;
+    text-align: left !important;
     display: inline-block;
     margin-bottom: .5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.form-control {
-	    transition: none;
-	}
+    .form-control {
+        transition: none;
+    }
 }
 
 .form-control {
@@ -65,7 +66,7 @@ label {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .col-12 {
@@ -84,10 +85,10 @@ label {
 }
 
 @media (max-width: 767px) {
-	.col-sm {
-	    flex: 0 0 auto;
-	    width: 100%;
-	}
+    .col-sm {
+        flex: 0 0 auto;
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -99,11 +100,15 @@ label {
 
 
 .pr-1 {
-	padding-right: 1rem;
+    padding-right: 1rem;
+}
+
+.pr-3 {
+    padding-right: 3rem;
 }
 
 .pl-1 {
-	padding-left: 1rem;
+    padding-left: 1rem;
 }
 
 textarea.form-control {
@@ -143,57 +148,69 @@ form {
 .form-check-input[type=radio] {
     border-radius: 50%;
 }
+
 .form-check .form-check-input {
     float: left;
     margin-left: -1.5em;
 }
 
 .w-100 {
-    width: 100%!important;
+    width: 100% !important;
 }
+
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
-.btn-group-lg>.btn, .btn-lg {
+
+.btn-group-lg>.btn,
+.btn-lg {
     padding: .5rem 1rem;
     font-size: 1.25rem;
     border-radius: .3rem;
 }
+
 .btn-md {
     padding: .25rem .5rem;
     font-size: 1.25rem;
     border-radius: .2rem;
 }
+
 .btn-primary {
     color: #fff;
     background-color: #0d6efd;
     border-color: #0d6efd;
 }
+
 .btn-warning {
     color: #fff;
     background-color: #c1df1c;
     border-color: #c1df1c;
 }
+
 .btn-success {
     color: #fff;
-    background-color:rgb(63, 182, 59);
+    background-color: rgb(63, 182, 59);
     border-color: rgb(63, 182, 59);
 }
+
 .btn-maroon {
     color: #fff;
-    background-color:maroon;
+    background-color: maroon;
     border-color: maroon;
 }
+
 .btn-primary:hover {
     color: #fff;
     background-color: #0069d9;
     border-color: #0062cc;
 }
+
 @media (prefers-reduced-motion: reduce) {
-	.btn {
-	    transition: none;
-	}
+    .btn {
+        transition: none;
+    }
 }
+
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -203,41 +220,54 @@ form {
     vertical-align: middle;
     user-select: none;
     border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 
 .mt-2 {
-	margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 /* styles for colors*/
-.danger{
+.danger {
     color: white;
     background-color: rgb(182, 59, 59);
     margin: 10px;
     padding: 2px 2px;
     padding-left: 10px;
 }
-.maroon{
+
+.maroon {
     background-color: maroon;
 }
-.info{
+
+.info {
     color: white;
     background-color: rgb(99, 91, 207);
     margin: 10px;
     padding: 2px 2px;
     padding-left: 10px;
 }
-.success{
+
+.success {
     color: white;
     background-color: rgb(63, 182, 59);
     margin: 10px;
     padding: 2px 2px;
     padding-left: 10px;
 }
+
 .navbar-brand {
     color: #fff;
     padding-top: .3125rem;
@@ -249,60 +279,179 @@ form {
 }
 
 .topnav {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
-  display: block;
-  color: rgba(255,255,255,.55);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    display: block;
+    color: rgba(255, 255, 255, .55);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  color: rgba(255,255,255,.75);
+    color: rgba(255, 255, 255, .75);
 }
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-  color: #fff;
+    color: #fff;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
-  display: none;
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(.navbar-brand) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+    .topnav a:not(.navbar-brand) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+    .topnav.responsive {
+        position: relative;
+    }
+
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
 
 @media screen and (min-width: 601px) {
     .float-right {
         float: right;
     }
+}
+
+.bg-dark {
+    background-color: #212529 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+@media (min-width: 768px) {
+    .mb-md-0 {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .me-md-auto {
+        margin-right: auto !important;
+    }
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+@media (min-width: 1200px) {
+    .fs-4 {
+        font-size: 1.5rem !important;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+}
+
+.mb-auto {
+    margin-bottom: auto!important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0d6efd;
+}
+
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: .25rem;
+}
+@media (prefers-reduced-motion: reduce)
+{.nav-link {
+    transition: none;
+}}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.sidenav {
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+.main {
+  margin-left: 20vw;
+}
+
+.nav-fill .nav-item, .nav-fill>.nav-link {
+    flex: 1 1 auto;
+    text-align: center;
 }

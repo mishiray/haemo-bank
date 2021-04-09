@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>View a Donor Page</title>
-	<link rel="stylesheet" type="text/css" href="../includes/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-</head>
-<body>
-	<div class="sidenav p-3 text-white bg-dark" style="width: 20vw; min-height: 100vh;">
-	  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-	    <span class="fs-4">Dashboard</span>
-	  </a>
-	  <ul class="nav nav-pills flex-column mb-auto">
-	    <li class="nav-item">
-	      <a href="#" class="nav-link active pr-1">
-	        <i class="fa fa-user-friends"></i>
-	        Donors
-	      </a>
-	    </li>
-	    <li>
-	      <a href="#" class="nav-link text-white pr-1">
-	        <i class="fa fa-tint"></i>
-	        Donation Requests
-	      </a>
-	    </li>
-	  </ul>
-	</div>
+<?php 
+	require_once "../config.php";
+	$title = "View Donor";
+?>
+<?php include "top.php"?>
+<!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">View a donor</h3>
 		<div class="col-10" style="margin: 0 auto;">
@@ -87,5 +66,5 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<!-- end here-->
+<?php include "buttom.php"?>

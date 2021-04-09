@@ -1,4 +1,5 @@
 <?php 
+	$title = 'Login';
 	//login function for php
 	session_start();
 	
@@ -6,9 +7,11 @@
 	$sessions = (object)$_SESSION;
 	$posts = (object)$_POST;
 
-	// Check if the user is already logged in, if yes then redirect him to welcome page
+	// Check if the user is already logged in, if yes then redirect him to the dashboard page
 	if(isset($sessions->loggedin) && $sessions->loggedin === true){
 		//redirect to admin or dashboard
+		$location = ($userinfo->userrole == 'admin') ? 'admin' : 'dashboard';
+		header("Location: $location");
 		exit;
 	}
 
@@ -85,16 +88,8 @@
 	}
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="includes/style.css">
-	<script src="includes/script.js"></script>
-
-</head>
-<body>
-	<?php include "navbar.php"?>
+<?php include "top.php"?>
+<!-- start main coding here -->
 	<div class="container">
 		<h3 class="text-center">Login to your account</h3>
 		<div class="col-8" style="margin: 0 auto;">
@@ -123,5 +118,5 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+<!-- end main coding here -->
+<?php include "buttom.php"?>

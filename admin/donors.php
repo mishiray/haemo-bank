@@ -8,6 +8,15 @@
         while ($entry = mysqli_fetch_object($result)) {
            $donors[] = $entry;
         }
+		if(!empty($donors)){
+			foreach($donors as $value){
+				if(!empty($value->email)){
+					$sql = "SELECT * FROM `blood_data` WHERE `email` = '$value->email'";
+					$result = mysqli_query($conn, $sql);
+					$value->blood_data = mysqli_fetch_object($result);
+				}
+			}
+		}
     }
 ?>
 
@@ -39,8 +48,17 @@
                             <td> 
 								<?php echo ucwords($donor->name) ?> <br>							
 							</td>
-                            <td><?php echo $donor->blood_details ?></td>
-                            <td><?php echo $donor->status ?></td>
+                            <td><?php echo $donor->blood_data->blood_group ?></td>
+                            <td><?php
+									if($donor->status == 0){
+										echo "NOT TESTED";
+									}
+									elseif($donor->status == 1){
+										echo "OKAY - AVAILABLE";
+									}elseif($donor->status == 3){
+										echo "Not Available";
+									}
+								?></td>
                             <td><?php echo $donor->date_added ?></td>
                             <td class="center">
 			        		<?php 

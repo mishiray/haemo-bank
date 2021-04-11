@@ -90,23 +90,7 @@
 					</div>
 					<div class="col-12">
 					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
-					    <input type="number" id="inputBloodAmount" class="form-control" placeholder="Enter a number from 200-550" min="200" max="550" required>
-					</div>
-					
-					<div class="col-12">
-					    <label class="">Has donor donated blood before?</label>
-					    <div class="form-check">
-						  <input class="form-check-input" type="radio" name="yesRadio" id="yes">
-						  <label class="form-check-label" for="yes">
-						    Yes
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="yesRadio" id="no">
-						  <label class="form-check-label" for="no">
-						    No
-						  </label>
-						</div>
+					    <input type="number" id="inputBloodAmount" class="form-control" name="amount" placeholder="Enter a number from 200-550" min="200" max="550" required>
 					</div>
 				</div>
 				<?php 

@@ -13,6 +13,11 @@
 
 			//create obj of donor values
 			$donor =  mysqli_fetch_object($result);
+			if(!empty($donor->email)){
+				$sql = "SELECT * FROM `blood_data` WHERE `email` = '$donor->email'";
+				$result = mysqli_query($conn, $sql);
+				$donor->blood_data = mysqli_fetch_object($result);
+			}
 			
 			//check if donor has donated before by counting appearance on table
 			$sql = "SELECT COUNT(`email`) as num FROM `donor` WHERE `email` = '$donor->email' ";
@@ -66,19 +71,19 @@
 				<div class="col-12">
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Type:</span>
-						<span>Insert here</span>
+						<span><?php echo "$donor->blood_data->blood_type";?></span>
 					</p>
 				</div>
 				<div class="col-12">
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Group:</span>
-						<span>Insert here</span>
+						<span><?php echo "$donor->blood_data->blood_group";?></span>
 					</p>
 				</div>
 				<div class="col-12">
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood amount donated:</span>
-						<span>Insert here</span>
+						<span><?php echo "$donor->amount->";?></span>
 					</p>
 				</div>
 				<div class="col-12">

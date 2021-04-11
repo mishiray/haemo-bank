@@ -29,10 +29,9 @@ gender varchar(30) NOT NULL,
 dob date not null,
 email varchar(100) not null,
 role varchar(30) NOT NULL,
-blood_group varchar(30) NOT NULL,
 user_password varchar(30) NOT NULL,
-date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
-status varchar(30) NOT NULL
+status varchar(30) NOT NULL,
+date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 create table donor(
@@ -44,6 +43,7 @@ email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
 status int(1) NOT NULL,
+blood_amount int not null,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
@@ -56,6 +56,7 @@ email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
 status int(1) NOT NULL,
+blood_amount int not null,
 date_needed DATETIME not null,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );

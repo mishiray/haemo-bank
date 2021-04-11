@@ -42,7 +42,7 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-status int(1) NOT NULL,
+blood_amount INT not null,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
@@ -54,7 +54,7 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-status int(1) NOT NULL,
+blood_amount INT not null,
 date_needed DATETIME not null,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );

@@ -42,10 +42,6 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-blood_group varchar(30) not null,
-blood_type varchar(30) not null,
-blood_amount int not null,
-blood_test int(1) not null,
 status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -58,11 +54,8 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-blood_group varchar(30) not null,
-blood_type varchar(30) not null,
-blood_amount int not null,
-blood_test int(1) not null,
 status int(1) NOT NULL,
+date_needed DATETIME not null,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 

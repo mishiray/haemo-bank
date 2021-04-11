@@ -37,7 +37,19 @@
 				</div>
 				<div class="col-12">
 					<p>
+						<span class="pr-3" style="font-weight: 600;">Blood Type:</span>
+						<span>Insert here</span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Group:</span>
+						<span>Insert here</span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Blood Amount Needed:</span>
 						<span>Insert here</span>
 					</p>
 				</div>

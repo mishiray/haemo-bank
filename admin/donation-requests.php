@@ -45,7 +45,7 @@
 			<div id="all">
 				<table>
 					  <tr>
-					    <th>User Id</th>
+					    <th>Donor Id</th>
 					    <th>Blood Group</th>
 					    <th>Status</th>
 					    <th>#</th>
@@ -73,7 +73,7 @@
 			<div id="approved" style="display: none;">
 				<table>
 					  <tr>
-					    <th>User Id</th>
+					    <th>Donor Id</th>
 					    <th>Blood Group</th>
 					    <th>Date approved</th>
 					  </tr>
@@ -97,7 +97,7 @@
 			<div id="pending" style="display: none;">
 				<table>
 					  <tr>
-					    <th>User Id</th>
+					    <th>Donor Id</th>
 					    <th>Blood Group</th>
 					    <th>How urgent is it</th>
 					    <th>#</th>

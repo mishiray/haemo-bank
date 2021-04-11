@@ -48,6 +48,16 @@
 					    <label for="inputAddress" class="">Address</label>
 					    <textarea id="inputName" class="form-control" required></textarea>
 					</div>
+					<div class="col-sm">
+					    <label for="inputBloodType" class="">Blood Type</label>
+					    <select class="form-select" id="inputBloodType" name="blood_type" required>
+			                <option value="">Choose...</option>
+			                <option value="o">O</option>
+			                <option value="a">A</option>
+			                <option value="b">B</option>
+			                <option value="ab">AB</option>
+			            </select>
+					</div>
 					<div class="col-12">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-select" id="inputBloodGroup" required>
@@ -61,6 +71,10 @@
 			                <option value="ab-plus">AB+</option>
 			                <option value="ab-minus">AB-</option>
 			            </select>
+					</div>
+					<div class="col-12">
+					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
+					    <input type="number" id="inputBloodAmount" class="form-control" placeholder="Enter a number from 200-550" min="200" max="550" required>
 					</div>
 					<div class="col-12">
 					    <label for="inputOccupation" class="">Occupation</label>

@@ -69,4 +69,3 @@ status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
-gi

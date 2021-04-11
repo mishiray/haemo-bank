@@ -1,41 +1,22 @@
 <?php 
 
 	//database connection
-	require_once "config.php";
+	require_once "../config.php";
 
 	
-	// convert super globals to objects
-	$posts = (object)$_POST;
-
 	//check if submit is clicked
-	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["register"])){
+	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["edit_profile"])){
 		$posts = (object)$_POST;
 		$err = 0;
 		$fail = '';
 
-		// Check if email empty
-		if(empty(trim($_POST["email"]))){
-			$fail .= "<p>Please enter email.</p>";
-			$err++;
-		}else{
-			// Check if email exists
-			$email = strtolower(trim($_POST["email"]));
-			$sql = "SELECT `email` FROM `userprofile` WHERE ( `email`= '$email' )";
-			
-			//perform query with conection
-			$result = mysqli_query($conn, $sql);
-			if(!empty($result)){
-				$fail .= "<p>Please Login. User already exists</p>";
-				$err++;
-			}
-		}
 
-		$posts->password = base64_encode($posts->password);
 		if($err == 0){
 
 			//insert query
-			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `age`, `blood_group`, `password`) VALUES 
-										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->age','$posts->blood_group','$posts->password')";
+			$query1 = "UPDATE TABLE `userprofile` SET `name` = '$posts->name' , `phone` = '$posts->phone', `address` = '$posts->address', `dob` = '$posts->dob' WHERE `email` = '$posts->email'"; 
+
+			$query2 = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 
 			if(mysqli_query($conn, $sql)){
 				$fail .= "<p>You have successfully registered. Please login</p>";
@@ -90,8 +71,8 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputAge" class="">Age</label>
-					    <input type="number" id="inputAge" name="age" class="form-control" required>
+					    <label for="inputAge" class="">Date of Birth</label>
+					    <input type="date" id="inputAge" name="dob" class="form-control" required>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodType" class="">Blood Type</label>
@@ -118,7 +99,7 @@
 			            </select>
 					</div>
 				</div>
-			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Submit</button>
+			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="edit_profile" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>

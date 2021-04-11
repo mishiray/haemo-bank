@@ -11,6 +11,7 @@ IF NOT EXISTS (
 CREATE DATABASE haemobank;
 use haemobank;
 create table blood_data(
+email varchar(100) not null,
 blood_id INT NOT NULL,
 blood_group varchar(30) not null,
 blood_type varchar(30) not null,
@@ -41,7 +42,10 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-blood_details varchar(100) not null,
+blood_group varchar(30) not null,
+blood_type varchar(30) not null,
+blood_amount int not null,
+blood_test int(1) not null,
 status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -54,7 +58,10 @@ dob date not null,
 email varchar(100) not null,
 phone int not null,
 address varchar(100) not null,
-blood_request_details varchar(100) not null,
+blood_group varchar(30) not null,
+blood_type varchar(30) not null,
+blood_amount int not null,
+blood_test int(1) not null,
 status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -65,7 +72,6 @@ recipient_id varchar(100) not null,
 foreign key (recipient_id) references recipient(id),
 donor_id varchar(30) not null,
 foreign key (donor_id) references donor(id),
-blood_details varchar(30) not null,
 status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );

@@ -5,9 +5,15 @@
 	  </a>
 	  <ul class="nav nav-pills flex-column mb-auto">
 	    <li class="nav-item">
+	      <a href="register-donor.php" class="nav-link text-white <?php echo (in_array($sitePage, array('register-donor.php'))) ? 'active' : '' ?> pr-1">
+	        <i class="fa fa-user-friends"></i>
+	        Register Donor
+	      </a>
+	    </li>
+	    <li class="nav-item">
 	      <a href="donors.php" class="nav-link text-white <?php echo (in_array($sitePage, array('donors.php','view-donor.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-user-friends"></i>
-	        Donors
+	        View Donors
 	      </a>
 	    </li>
 	    <li>

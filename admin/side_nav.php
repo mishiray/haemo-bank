@@ -17,9 +17,9 @@
 	      </a>
 	    </li>
 	    <li>
-	      <a href="donation-requests.php" class="nav-link <?php echo (in_array($sitePage, array('donation-requests.php'))) ? 'active' : '' ?> text-white pr-1">
+	      <a href="blood-requests.php" class="nav-link <?php echo (in_array($sitePage, array('blood-requests.php'))) ? 'active' : '' ?> text-white pr-1">
 	        <i class="fa fa-tint"></i>
-	        Donation Requests
+	        Blood Requests
 	      </a>
 	    </li>
 	  </ul>

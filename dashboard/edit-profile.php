@@ -1,5 +1,4 @@
 <?php 
-	$title = 'Main Registration';
 
 	//database connection
 	require_once "config.php";
@@ -34,28 +33,12 @@
 		$posts->password = base64_encode($posts->password);
 		if($err == 0){
 
-			//insert query for login
-			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `dob`, `password`) VALUES 
-										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->dob','$posts->blood_group','$posts->password')";
+			//insert query
+			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `age`, `blood_group`, `password`) VALUES 
+										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->age','$posts->blood_group','$posts->password')";
 
-			if(mysqli_query($conn, $query)){
+			if(mysqli_query($conn, $sql)){
 				$fail .= "<p>You have successfully registered. Please login</p>";
-
-				//insert query to add blood data
-
-				//check if blood data with email exists
-				$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
-				//perform query 
-				$result = mysqli_query($conn, $sql);
-				if(!empty($result)){
-					$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email') VALUES 
-					('$posts->email','$posts->blood_group','',1)";
-					mysqli_query($conn, $query);
-				}else{
-					$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
-					('$posts->email','$posts->blood_group','$posts->blood_type',1)";
-					mysqli_query($conn, $query2);
-				}
 
 			}else{
 				$fail .= "<p> Unable to register. Please try again</p>";
@@ -66,12 +49,19 @@
 		}
 
 	}
-
 ?>
-<?php include "top.php"?>
-<!-- start main coding here -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile Page</title>
+	<link rel="stylesheet" type="text/css" href="../includes/style.css">	
+	<script src="includes/script.js"></script>
+
+</head>
+<body>
+	<?php include "navbar.php"?>
 	<div class="container">
-		<h3 class="text-center">Register with us now</h3>
+		<h3 class="text-center">Edit Profile</h3>
 		<div class="col-10" style="margin: 0 auto;">
 			<form method="POST" >
 				<div class="row">
@@ -100,8 +90,8 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputDob" class="">Date of Birth</label>
-					    <input type="date" id="inputDob" name="dob" class="form-control" required>
+					    <label for="inputAge" class="">Age</label>
+					    <input type="number" id="inputAge" name="age" class="form-control" required>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodType" class="">Blood Type</label>
@@ -127,21 +117,10 @@
 			                <option value="ab-minus">AB-</option>
 			            </select>
 					</div>
-					<div class="col-sm">
-					    <label for="password" class="">Create Password</label>
-					    <input type="text" id="password" name="password" class="form-control" required>
-					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(6)">Generate Password</button>
-					</div>
 				</div>
-			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Register</button>
-				<div class="row">
-					<div class="col">
-						<p class="mt-2 ">Already have an account?</p>
-						<a href="login.php" class="w-100 btn btn-md btn-success">Login</a>
-					</div>
-				</div>
+			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>
-<!-- end main coding here -->
-<?php include "buttom.php"?>
+</body>
+</html>

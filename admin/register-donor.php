@@ -15,7 +15,7 @@
 			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
 			//perform query 
 			$result = mysqli_query($conn, $sql);
-			
+
 			if(!empty($result)){
 				$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email') VALUES 
 				('$posts->email','$posts->blood_group','',1)";
@@ -65,6 +65,16 @@
 						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
 					</div>
 					<div class="col-sm">
+					    <label for="inputBloodType" class="">Blood Type</label>
+					    <select class="form-select" id="inputBloodType" name="blood_type" required>
+			                <option value="">Choose...</option>
+			                <option value="o">O</option>
+			                <option value="a">A</option>
+			                <option value="b">B</option>
+			                <option value="ab">AB</option>
+			            </select>
+					</div>
+					<div class="col-12">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-control" id="inputBloodGroup" name="blood_group" required>
 			                <option selected disabled value="">Choose...</option>
@@ -79,8 +89,24 @@
 			            </select>
 					</div>
 					<div class="col-12">
-					    <label for="inputAddress" class="">Address</label>
-					    <textarea id="inputName" name="address" class="form-control" required></textarea>
+					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
+					    <input type="number" id="inputBloodAmount" class="form-control" placeholder="Enter a number from 200-550" min="200" max="550" required>
+					</div>
+					
+					<div class="col-12">
+					    <label class="">Has donor donated blood before?</label>
+					    <div class="form-check">
+						  <input class="form-check-input" type="radio" name="yesRadio" id="yes">
+						  <label class="form-check-label" for="yes">
+						    Yes
+						  </label>
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="yesRadio" id="no">
+						  <label class="form-check-label" for="no">
+						    No
+						  </label>
+						</div>
 					</div>
 				</div>
 				<?php 

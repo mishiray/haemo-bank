@@ -11,19 +11,8 @@
 			<form>
 				<div class="row">
 					<div class="col-12">
-					    <label for="inputBloodGroup" class="">Blood Group</label>
-					    <!-- Default option would be the blood group on user's profile -->
-					    <select class="form-select" id="inputBloodGroup" required>
-			                <option value="">Choose...</option>
-			                <option value="o-plus">O+</option>
-			                <option value="o-minus">O-</option>
-			                <option value="a-plus">A+</option>
-			                <option value="a-minus">A-</option>
-			                <option value="b-plus">B+</option>
-			                <option value="b-minus">B-</option>
-			                <option value="ab-plus">AB+</option>
-			                <option value="ab-minus">AB-</option>
-			            </select>
+					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
+					    <input type="number" id="inputBloodAmount" class="form-control" placeholder="Enter a number from 200-550" min="200" max="550" required>
 					</div>
 					<div class="col-12">
 						<label for="inputDate" class="">How soon do you need it?</label>

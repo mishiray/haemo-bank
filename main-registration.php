@@ -34,12 +34,28 @@
 		$posts->password = base64_encode($posts->password);
 		if($err == 0){
 
-			//insert query
-			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `age`, `blood_group`, `password`) VALUES 
-										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->age','$posts->blood_group','$posts->password')";
+			//insert query for login
+			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `dob`, `password`) VALUES 
+										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->dob','$posts->blood_group','$posts->password')";
 
-			if(mysqli_query($conn, $sql)){
+			if(mysqli_query($conn, $query)){
 				$fail .= "<p>You have successfully registered. Please login</p>";
+
+				//insert query to add blood data
+
+				//check if blood data with email exists
+				$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
+				//perform query 
+				$result = mysqli_query($conn, $sql);
+				if(!empty($result)){
+					$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email') VALUES 
+					('$posts->email','$posts->blood_group','',1)";
+					mysqli_query($conn, $query);
+				}else{
+					$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
+					('$posts->email','$posts->blood_group','$posts->blood_type',1)";
+					mysqli_query($conn, $query2);
+				}
 
 			}else{
 				$fail .= "<p> Unable to register. Please try again</p>";
@@ -76,8 +92,8 @@
 					    <textarea id="inputName" name="address" class="form-control" required></textarea>
 					</div>
 					<div class="col-sm">
-					    <label for="inputAge" class="">Age</label>
-					    <input type="number" id="inputAge" name="age" class="form-control" required>
+					    <label for="inputDob" class="">Date of Birth</label>
+					    <input type="date" id="inputDob" name="dob" class="form-control" required>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
@@ -98,28 +114,6 @@
 					    <input type="text" id="password" name="password" class="form-control" required>
 					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(6)">Generate Password</button>
 					</div>
-					<!--
-					<div class="col-12">
-					    <label for="inputOccupation" class="">Occupation</label>
-					    <input type="text" id="inputOccupation" class="form-control" placeholder="" required>
-					</div>
-					
-					<div class="col-12">
-					    <label class="">Have you done a blood donation before?</label>
-					    <div class="form-check">
-						  <input class="form-check-input" type="radio" name="yesRadio" id="yes">
-						  <label class="form-check-label" for="yes">
-						    Yes
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="yesRadio" id="no">
-						  <label class="form-check-label" for="no">
-						    No
-						  </label>
-						</div>
-					</div>
-					-->
 				</div>
 			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Register</button>
 				<div class="row">

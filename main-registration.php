@@ -25,6 +25,7 @@
 			
 			//perform query with conection
 			$result = mysqli_query($conn, $sql);
+			$result = mysqli_fetch_object($result);
 			if(!empty($result)){
 				$fail .= "<p>Please Login. User already exists</p>";
 				$err++;
@@ -35,8 +36,8 @@
 		if($err == 0){
 
 			//insert query for login
-			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `dob`, `password`) VALUES 
-										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->dob','$posts->blood_group','$posts->password')";
+			$query = "INSERT INTO `userprofile` (`name`,`gender` ,`phone`, `email`, `address`, `dob`, `userrole`, `password`) VALUES 
+										('$posts->name','$posts->gender','$posts->phone','$posts->email','$posts->address','$posts->dob','client','$posts->password')";
 
 			if(mysqli_query($conn, $query)){
 				$fail .= "<p>You have successfully registered. Please login</p>";
@@ -48,8 +49,7 @@
 				//perform query 
 				$result = mysqli_query($conn, $sql);
 				if(!empty($result)){
-					$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email') VALUES 
-					('$posts->email','$posts->blood_group','',1)";
+					$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 					mysqli_query($conn, $query);
 				}else{
 					$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
@@ -58,7 +58,7 @@
 				}
 
 			}else{
-				$fail .= "<p> Unable to register. Please try again</p>";
+				$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
 
 			}
 
@@ -133,6 +133,11 @@
 					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(6)">Generate Password</button>
 					</div>
 				</div>
+				<?php 
+					if(!empty($fail)){
+						echo '<div class="danger text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+					}
+				?>
 			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Register</button>
 				<div class="row">
 					<div class="col">

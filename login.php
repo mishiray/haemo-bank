@@ -40,7 +40,7 @@
 			$fail .= "<p>Please enter your password.</p>";
 			$err++;
 		} else{
-			$password = $posts->email;
+			$password = $posts->password;
 		}
 		
 		// Validate credentials
@@ -57,7 +57,7 @@
 				$data = mysqli_fetch_assoc($result);
 				$data = $data ? (object)$data : null;
 
-				if($data->password==base64_encode($password) ){
+				if($data->password == base64_encode($password)){
 					//begin session
 					session_start();
 					$userinfo = $data;
@@ -69,7 +69,7 @@
 					// Redirect specified user to welcome page (admin/dashboard)
 					if($data->userrole == 'admin'){
 						header("location: admin/index.php");
-					}elseif($data->userrole == 'dashboard'){
+					}elseif($data->userrole == 'client'){
 						header("location: dashboard/index.php");
 					}
 

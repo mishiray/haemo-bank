@@ -36,9 +36,9 @@ The analysis can be Maybe ranking in order of importance so the centre know who 
 
 Table sturcture for the app
 
-1. donors: id, name, gender, dob, email, phone, address, blooddetails(perhaps in json format), status, dateadded
-2. recipients: id, name, gender, dob, email, phone, address, bloodrequestdetails, status, dateadded
-3. userprofile: id, name, gender, dob, email, phone, address, userrole, username, password, status, dateadded
-4. transaction: id, recipientid, donorid, blooddetails, status,  dateadded
+1. donors: id, name, gender, dob, email, phone, address, bloodamount, dateadded
+2. recipients: id, name, gender, dob, email, phone, address, bloodamount, dateadded, dateneeded
+3. userprofile: id, name, gender, dob, email, userrole, password,  status, dateadded
+4. transaction: id, recipientid, donorid, dateadded
 
 Okayyyyy, so guys we can start with this breakdown

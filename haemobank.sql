@@ -65,7 +65,6 @@ recipient_id varchar(100) not null,
 foreign key (recipient_id) references recipient(id),
 donor_id varchar(30) not null,
 foreign key (donor_id) references donor(id),
-status int(1) NOT NULL,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 

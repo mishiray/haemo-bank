@@ -260,6 +260,10 @@ form {
     background-color: maroon;
 }
 
+.purple {
+    color: white;
+    background-color: rgb(99, 91, 207);
+}
 .info {
     color: white;
     background-color: rgb(99, 91, 207);

@@ -363,6 +363,10 @@ form {
 .p-3 {
     padding: 1rem !important;
 }
+.m-3 {
+    
+    margin: 4rem !important;
+}
 
 .flex-column {
     flex-direction: column !important;

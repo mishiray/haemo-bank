@@ -4,11 +4,11 @@
 
 	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'add_donor'){
-		$sql = "INSERT INTO `donor` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`status`) VALUES 
-								('$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount',1)";
+		$sql = "INSERT INTO `recipients` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`status`) VALUES 
+								('$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed',0)";
 
 		if( mysqli_query($conn, $sql)){
-			$fail = "New Donor has been added";
+			$fail = "New request has been added";
 
 			//check if blood data with email exists
 			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
@@ -19,8 +19,8 @@
 				$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group',`blood_test` = '$posts->blood_test', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 				mysqli_query($conn, $query);
 			}else{
-				$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`, `blood_test`, `status`) VALUES 
-				('$posts->email','$posts->blood_group','$posts->blood_type','$posts->blood_test',1)";
+				$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
+				('$posts->email','$posts->blood_group','$posts->blood_type',1)";
 				mysqli_query($conn, $query2);
 			}
 			
@@ -35,7 +35,7 @@
 <?php include "top.php"?>
 <!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">
-		<h3 class="text-center">Register a donor</h3>
+		<h3 class="text-center">Register a blood recipient</h3>
 		<div class="col-10" style="margin: 0 auto;">
 			<form method="POST" name="add_donor">
 				<div class="row">
@@ -91,14 +91,13 @@
 					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
 					    <input type="number" id="inputBloodAmount" class="form-control" name="amount" placeholder="Enter a number from 200-550" min="200" max="550" required>
 					</div>
+					<div class="col-sm">
+					    <label for="dateNeeded" class="">Date Neededd</label>
+					    <input type="date" id="dateNeeded" class="form-control" name="date_needed"> 
+					</div>
 					<div class="col-12">
 					    <label for="inputAddress" class="">Address</label>
 					    <textarea id="inputName" name="address" class="form-control" required></textarea>
-					</div>
-					<div class="col-sm">
-					    <label for="inputTest" class="">Has Blood been Tested</label>
-					    <input type="radio" id="bloodTest1" class="form-control-radio" name="blood_test" value="1"> Yes
-					    <input type="radio" id="bloodTest2" class="form-control-radio" name="blood_test" value="0"> No
 					</div>
 				</div>
 				<?php 

@@ -1,8 +1,8 @@
 <?php 
-	require_once "../config.php";
+	require_once "../base.php";
 	$title = "Blood Recipient Requests";
 	
-	$sql = "SELECT * FROM `recipient` ORDER BY `date_added` DESC ";
+	$sql = "SELECT * FROM `recipients` ORDER BY `date_added` DESC ";
     $result = mysqli_query($conn, $sql);
     $requests = [];
     if(!empty($result)){
@@ -20,7 +20,7 @@
 		}
     }
 
-	$sql = "SELECT * FROM `recipient` WHERE `status` = 0 ORDER BY `date_added` DESC ";
+	$sql = "SELECT * FROM `recipients` WHERE `status` = 0 ORDER BY `date_added` DESC ";
     $result = mysqli_query($conn, $sql);
     $pending_requests = [];
     if(!empty($result)){
@@ -39,7 +39,7 @@
     }
 
 	//Approved requests
-	$sql = "SELECT * FROM `recipient` WHERE `status` = 3 ORDER BY `date_added` DESC ";
+	$sql = "SELECT * FROM `recipients` WHERE `status` = 3 ORDER BY `date_added` DESC ";
     $result = mysqli_query($conn, $sql);
     $approved_requests = [];
     if(!empty($result)){
@@ -53,6 +53,12 @@
 					$result = mysqli_query($conn, $sql);
 					$value->blood_data = mysqli_fetch_object($result);
 				}
+				if(!empty($value->token)){
+					$sql = "SELECT * FROM `transact` WHERE transact.token = '$value->token'";
+					$result = mysqli_query($conn, $sql);
+					$transact = mysqli_fetch_object($result);
+					$value->donor_id  = $transact->donor_id;
+				}
 			}
 		}
     }
@@ -64,6 +70,12 @@
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">Blood Recipient Requests</h3>
 		
+		
+				<?php 
+					if(!empty($fail)){
+						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+					}
+				?>
 		<div class="col-10" style="margin: 0 auto;">
 			<ul class="nav nav-pills nav-fill">
 			  <li class="nav-item">
@@ -103,7 +115,7 @@
 										<?php echo ucwords($req->name) ?>							
 									</td>
 									<td><?php echo $req->blood_data->blood_group ?></td>
-									<td><?php echo $req->amount ?></td>
+									<td><?php echo $req->blood_amount ?></td>
 									<td><?php
 											if($req->status == 0){
 												echo "
@@ -173,12 +185,19 @@
 									<?php echo ucwords($req->name) ?> 							
 								</td>
 								<td><?php echo $req->blood_data->blood_group ?></td>
-								<td><?php echo $req->amount ?></td>
+								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_added ?></td>
 								<td class="center">
 									<?php 
 										echo "
 											<a type='button' href='view-request.php?id=$req->id' class='btn btn-primary'>View Details</a>
+										";
+									?>
+								</td>
+								<td class="center">
+									<?php 
+										echo "
+											<a type='button' href='view-donor.php?id=$req->donor_id' class='btn btn-success'>View Donor</a>
 										";
 									?>
 								</td>
@@ -216,7 +235,7 @@
 									<?php echo ucwords($req->name) ?> 							
 								</td>
 								<td><?php echo $req->blood_data->blood_group ?></td>
-								<td><?php echo $req->amount ?></td>
+								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_needed ?></td>
 								<td class="center">
 									<?php 

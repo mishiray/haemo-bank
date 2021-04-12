@@ -67,7 +67,7 @@
 					$_SESSION["userinfo"] = $userinfo;
 
 					// Redirect specified user to welcome page (admin/dashboard)
-					if($data->userrole == 'admin'){
+					if(in_array($data->userrole,array('admin','sudo'))){
 						header("location: admin/index.php");
 					}elseif($data->userrole == 'client'){
 						header("location: dashboard/index.php");

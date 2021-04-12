@@ -6,3 +6,5 @@ require_once 'config.php';
       header("location: ../index.php");
       exit;
   }
+
+$userinfo = $sessions->userinfo;

@@ -88,11 +88,11 @@
 	}
 
 ?>
-<?php include "top.php"?>
+<?php include "includes/top.php"?>
 <!-- start main coding here -->
 	<div class="container">
 		<h3 class="text-center">Login to your account</h3>
-		<div class="col-8" style="margin: 0 auto;">
+		<div class="col-6" style="margin: 0 auto;">
 			<form action="" method="POST">
 				<div class="row">
 					<div class="col-12">
@@ -119,4 +119,4 @@
 		</div>
 	</div>
 <!-- end main coding here -->
-<?php include "buttom.php"?>
+<?php include "includes/buttom.php"?>

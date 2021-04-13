@@ -16,7 +16,7 @@
 			$result = mysqli_query($conn, $sql);
 			$result = mysqli_fetch_object($result);
 			if(!empty($result)){
-				$query = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group',`blood_test` = '$posts->blood_test', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
+				$query = "UPDATE `blood_data` SET `blood_group` = '$posts->blood_group',`blood_test` = '$posts->blood_test', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 				mysqli_query($conn, $query);
 			}else{
 				$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 

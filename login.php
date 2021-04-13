@@ -47,7 +47,7 @@
 		if($err == 0){
 
 			//select record from userprofile table
-			$sql = "SELECT `password`, `userrole`, `email` FROM `userprofile` WHERE ( `email`= '$email' )";
+			$sql = "SELECT * FROM `userprofile` WHERE ( `email`= '$email' )";
 			
 			//perform query with conection
 			$result = mysqli_query($conn, $sql);

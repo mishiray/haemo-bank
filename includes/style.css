@@ -260,6 +260,10 @@ form {
     background-color: maroon;
 }
 
+.purple {
+    color: white;
+    background-color: rgb(99, 91, 207);
+}
 .info {
     color: white;
     background-color: rgb(99, 91, 207);
@@ -354,6 +358,10 @@ form {
 
 .bg-dark {
     background-color: #212529 !important;
+}
+
+.bg-purple {
+    background-color: rgb(99, 91, 207) !important;
 }
 
 .text-white {

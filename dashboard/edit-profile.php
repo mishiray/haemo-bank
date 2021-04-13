@@ -3,6 +3,10 @@
 	//database connection
 	require_once "../config.php";
 
+	
+	// convert super globals to objects
+	$posts = (object)$_POST;
+
 	SELECT FROM blood_data WHERE email = $userinfo->email
 	//check if submit is clicked
 	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["edit_profile"])){

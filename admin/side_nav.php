@@ -10,6 +10,18 @@
 	        Dashboard
 	      </a>
 	    </li>
+		<?php 
+			if($userinfo->userrole == 'sudo'){
+		?>
+			<li class="nav-item">
+	      		<a href="users.php" class="nav-link text-white <?php echo (in_array($sitePage, array('users.php'))) ? 'active' : '' ?> pr-1">
+					<i class="fa fa-user"></i>
+					Manage Users
+				</a>
+	    	</li>
+		<?php
+			}
+		?>
 	    <li>
 		<br>
 	    </li>
@@ -43,7 +55,7 @@
 	    </li>
 		<hr class="w-100">
 	    <li>
-	      <a href="logout.php" class="nav-link text-white pr-1">
+	      <a href="../logout.php" class="nav-link text-white pr-1">
 	        <i class="fa fa-arrow-left"></i>
 	        Logout
 	      </a>

@@ -3,7 +3,7 @@
 	//database connection
 	require_once "../config.php";
 
-	
+	SELECT FROM blood_data WHERE email = $userinfo->email
 	//check if submit is clicked
 	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["edit_profile"])){
 		$posts = (object)$_POST;
@@ -18,11 +18,11 @@
 
 			$query2 = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 
-			if(mysqli_query($conn, $sql)){
-				$fail .= "<p>You have successfully registered. Please login</p>";
+			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
+				$fail .= "<p>You have successfully updated your profile</p>";
 
 			}else{
-				$fail .= "<p> Unable to register. Please try again</p>";
+				$fail .= "<p> Unable to update. Please try again</p>";
 
 			}
 

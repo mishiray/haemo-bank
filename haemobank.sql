@@ -59,6 +59,7 @@ phone varchar(20) not null,
 address varchar(250) not null,
 blood_amount INT not null,
 date_needed DATETIME not null,
+purpose varchar(250) not NULL,
 status int(1) NOT NULL DEFAULT 0,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -67,7 +68,7 @@ create table transact(
 transaction_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 token varchar(10) not null,
 recipient_id varchar(100) not null,
-foreign key (recipient_id) references recipient(id),
+foreign key (recipient_id) references recipients(id),
 donor_id varchar(30) not null,
 foreign key (donor_id) references donor(id),
 status int(1) NOT NULL DEFAULT 1,

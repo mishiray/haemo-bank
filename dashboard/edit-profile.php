@@ -32,12 +32,12 @@
 			//check if blood data with email exists
 			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$userinfo->email' ";
 			//perform query 
-			$result = mysqli_query($conn, $sql);
+			$result = mysqli_fetch_object(mysqli_query($conn, $sql));
 			if(!empty($result)){
 				$query2 = "UPDATE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$userinfo->email'";
 			}else{
 				$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
-				('$posts->email','$posts->blood_group','$posts->blood_type',1)";
+				('$userinfo->email','$posts->blood_group','$posts->blood_type',1)";
 			}
 
 			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
@@ -94,7 +94,7 @@
 			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'o')? 'selected' : '' : '' ?> value="o">O</option>
 			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'a')? 'selected' : '' : ''?> value="a">A</option>
 			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type ==  'b')? 'selected' : '' : '' ?> value="b">B</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'ab')? 'selected' : '' : ''?>value="ab">AB</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'ab')? 'selected' : '' : ''?> givalue="ab">AB</option>
 			            </select>
 					</div>
 					<div class="col-sm">
@@ -104,11 +104,11 @@
 			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'o-plus') ? 'selected' : '' : ''?> value="o-plus">O+</option>
 			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'o-minus') ? 'selected' : '' : ''?> value="o-minus">O-</option>
 			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a-plus') ? 'selected' : '' : '' ?> value="a-plus">A+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a-minus') ? 'selected' : ''  : ''?>value="a-minus">A-</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-plus') ? 'selected' : ''  : ''?>value="b-plus">B+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-minus') ? 'selected' : ''  : ''?>value="b-minus">B-</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-plus') ? 'selected' : ''  : ''?>value="ab-plus">AB+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-minus') ? 'selected' : ''  : ''?>value="ab-minus">AB-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a-minus') ? 'selected' : ''  : ''?> value="a-minus">A-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-plus') ? 'selected' : ''  : ''?> value="b-plus">B+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-minus') ? 'selected' : ''  : ''?> value="b-minus">B-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-plus') ? 'selected' : ''  : ''?> value="ab-plus">AB+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-minus') ? 'selected' : ''  : ''?> value="ab-minus">AB-</option>
 			            </select>
 					</div>
 				</div>

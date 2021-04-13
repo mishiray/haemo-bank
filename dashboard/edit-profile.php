@@ -5,43 +5,32 @@
 
 	
 	// convert super globals to objects
-	$posts = (object)$_POST;
+	
+
+	$select = "SELECT * FROM `blood_data` WHERE `email` = '$userinfo->email'";
+	$result = mysqli_query($conn, $select); 
+	$blood_data= mysqli_fetch_object($result);
 
 	//check if submit is clicked
-	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["register"])){
-		$posts = (object)$_POST;
+	if($_SERVER["REQUEST_METHOD"] == "POST" and isset ($_POST["triggrs"]) and $posts->triggers == 'edit_profile')
+	 {
+		
 		$err = 0;
 		$fail = '';
 
-		// Check if email empty
-		if(empty(trim($_POST["email"]))){
-			$fail .= "<p>Please enter email.</p>";
-			$err++;
-		}else{
-			// Check if email exists
-			$email = strtolower(trim($_POST["email"]));
-			$sql = "SELECT `email` FROM `userprofile` WHERE ( `email`= '$email' )";
-			
-			//perform query with conection
-			$result = mysqli_query($conn, $sql);
-			if(!empty($result)){
-				$fail .= "<p>Please Login. User already exists</p>";
-				$err++;
-			}
-		}
 
-		$posts->password = base64_encode($posts->password);
 		if($err == 0){
 
 			//insert query
-			$query = "INSERT INTO `userrofile` (`name`, `phone`, `email`, `address`, `age`, `blood_group`, `password`) VALUES 
-										('$posts->name','$posts->phone','$posts->email','$posts->address','$posts->age','$posts->blood_group','$posts->password')";
+			$query1 = "UPDATE TABLE `userprofile` SET `name` = '$posts->name' , `phone` = '$posts->phone', `address` = '$posts->address', `dob` = '$posts->dob' WHERE `email` = '$posts->email'"; 
 
-			if(mysqli_query($conn, $sql)){
-				$fail .= "<p>You have successfully registered. Please login</p>";
+			$query2 = "UPDATE TABLE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
+
+			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
+				$fail .= "<p>You have successfully updated your profile</p>";
 
 			}else{
-				$fail .= "<p> Unable to register. Please try again</p>";
+				$fail .= "<p> Unable to update. Please try again</p>";
 
 			}
 
@@ -67,58 +56,58 @@
 				<div class="row">
 					<div class="col-12">
 					    <label for="inputName" class="">Full Name</label>
-					    <input type="text" id="inputName" name="name" class="form-control" placeholder="Full Name" required>
+					    <input type="text" id="inputName" name="name" value="<?php echo $userinfo->name ?>" class="form-control" placeholder="Full Name" required>
 					</div>
 					<div class="col-sm">
 						<label for="inputPhoneNumber" class="">Phone Number</label>
-						<input type="tel" id="inputPhoneNumber" name="phone" class="form-control" placeholder="Phone Number" required>
+						<input type="tel" id="inputPhoneNumber" name="phone" class="form-control" value="<?php echo $userinfo->phone ?>" placeholder="Phone Number" required>
 					</div>
 					<div class="col-sm">
 						<label for="inputEmail" class="">Email Address</label>
-						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
+						<input type="email" id="inputEmail" name="email" class="form-control" value="<?php echo $userinfo->Aemail ?>" placeholder="Email Address" required>
 					</div>
 					<div class="col-12">
 					    <label for="inputAddress" class="">Address</label>
-					    <textarea id="inputName" name="address" class="form-control" required></textarea>
+					    <textarea id="inputName" name="address" class="form-control" value="<?php echo $userinfo->addresss ?>"required></textarea>
 					</div>
 					<div class="col-sm">
 					    <label for="inputGender" class="">Gender</label>
 					    <select class="form-select" id="inputGender" name="gender" required>
 			                <option value="">Choose...</option>
-			                <option value="male">Male</option>
-			                <option value="female">Female</option>
+			                <option <?php echo ($userinfo->gender == 'male' )? 'selected' : '' ?> value="male">Male</option>
+			                <option  <?php echo ($userinfo->gender == 'female' )? 'selected' : '' ?> value="female">Female</option>
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputAge" class="">Age</label>
-					    <input type="number" id="inputAge" name="age" class="form-control" required>
+					    <label for="inputAge" class="">Date of Birth</label>
+					    <input type="date" id="inputAge" name="dob" class="form-control" value="<?php echo $userinfo->dob ?> required>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodType" class="">Blood Type</label>
 					    <select class="form-select" id="inputBloodType" name="blood_type" required>
 			                <option value="">Choose...</option>
-			                <option value="o">O</option>
-			                <option value="a">A</option>
-			                <option value="b">B</option>
-			                <option value="ab">AB</option>
+			                <option  <?php echo ($blood_data->blood_type == 'o' )? 'selected' : '' ?> value="o">O</option>
+			                <option  <?php echo ($blood_data->blood_type == 'a')? 'selected' : '' ?> value="a">A</option>
+			                <option <?php echo ($blood_data->blood_type ==  'b')? 'selected' : '' ?> value="b">B</option>
+			                <option <?php echo ($blood_data->blood_type == 'ab')? 'selected' : '' ?>value="ab">AB</option>
 			            </select>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
-			                <option value="o-plus">O+</option>
-			                <option value="o-minus">O-</option>
-			                <option value="a-plus">A+</option>
-			                <option value="a-minus">A-</option>
-			                <option value="b-plus">B+</option>
-			                <option value="b-minus">B-</option>
-			                <option value="ab-plus">AB+</option>
-			                <option value="ab-minus">AB-</option>
+			                <option <?php echo ($blood_data->blood_group == 'o-plus')? 'selected' : '' ?> value="o-plus">O+</option>
+			                <option <?php echo ($blood_data->blood_group == 'o-minu')? 'selected' : '' ?> value="o-minus">O-</option>
+			                <option <?php echo ($blood_data->blood_group == 'a-plus')? 'selected' : '' ?> value="a-plus">A+</option>
+			                <option <?php echo ($blood_data->blood_group == 'a-minus')? 'selected' : '' ?>value="a-minus">A-</option>
+			                <option <?php echo ($blood_data->blood_group == 'b-plus')? 'selected' : '' ?>value="b-plus">B+</option>
+			                <option <?php echo ($blood_data->blood_group == 'b-minus')? 'selected' : '' ?>value="b-minus">B-</option>
+			                <option <?php echo ($blood_data->blood_group == 'ab-plus')? 'selected' : '' ?>value="ab-plus">AB+</option>
+			                <option <?php echo ($blood_data->blood_group == 'ab-minus')? 'selected' : '' ?>value="ab-minus">AB-</option>
 			            </select>
 					</div>
 				</div>
-			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="register" type="submit">Submit</button>
+			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name= 'triggers' value="edit_profile" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>

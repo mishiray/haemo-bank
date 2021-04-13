@@ -5,12 +5,16 @@
 
 	
 	// convert super globals to objects
-	$posts = (object)$_POST;
+	
 
-	SELECT FROM blood_data WHERE email = $userinfo->email
+	$select = "SELECT * FROM `blood_data` WHERE `email` = '$userinfo->email'";
+	$result = mysqli_query($conn, $select); 
+	$blood_data= mysqli_fetch_object($result);
+
 	//check if submit is clicked
-	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["edit_profile"])){
-		$posts = (object)$_POST;
+	if($_SERVER["REQUEST_METHOD"] == "POST" and isset ($_POST["triggrs"]) and $posts->triggers == 'edit_profile')
+	 {
+		
 		$err = 0;
 		$fail = '';
 
@@ -52,58 +56,58 @@
 				<div class="row">
 					<div class="col-12">
 					    <label for="inputName" class="">Full Name</label>
-					    <input type="text" id="inputName" name="name" class="form-control" placeholder="Full Name" required>
+					    <input type="text" id="inputName" name="name" value="<?php echo $userinfo->name ?>" class="form-control" placeholder="Full Name" required>
 					</div>
 					<div class="col-sm">
 						<label for="inputPhoneNumber" class="">Phone Number</label>
-						<input type="tel" id="inputPhoneNumber" name="phone" class="form-control" placeholder="Phone Number" required>
+						<input type="tel" id="inputPhoneNumber" name="phone" class="form-control" value="<?php echo $userinfo->phone ?>" placeholder="Phone Number" required>
 					</div>
 					<div class="col-sm">
 						<label for="inputEmail" class="">Email Address</label>
-						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
+						<input type="email" id="inputEmail" name="email" class="form-control" value="<?php echo $userinfo->Aemail ?>" placeholder="Email Address" required>
 					</div>
 					<div class="col-12">
 					    <label for="inputAddress" class="">Address</label>
-					    <textarea id="inputName" name="address" class="form-control" required></textarea>
+					    <textarea id="inputName" name="address" class="form-control" value="<?php echo $userinfo->addresss ?>"required></textarea>
 					</div>
 					<div class="col-sm">
 					    <label for="inputGender" class="">Gender</label>
 					    <select class="form-select" id="inputGender" name="gender" required>
 			                <option value="">Choose...</option>
-			                <option value="male">Male</option>
-			                <option value="female">Female</option>
+			                <option <?php echo ($userinfo->gender == 'male' )? 'selected' : '' ?> value="male">Male</option>
+			                <option  <?php echo ($userinfo->gender == 'female' )? 'selected' : '' ?> value="female">Female</option>
 			            </select>
 					</div>
 					<div class="col-sm">
 					    <label for="inputAge" class="">Date of Birth</label>
-					    <input type="date" id="inputAge" name="dob" class="form-control" required>
+					    <input type="date" id="inputAge" name="dob" class="form-control" value="<?php echo $userinfo->dob ?> required>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodType" class="">Blood Type</label>
 					    <select class="form-select" id="inputBloodType" name="blood_type" required>
 			                <option value="">Choose...</option>
-			                <option value="o">O</option>
-			                <option value="a">A</option>
-			                <option value="b">B</option>
-			                <option value="ab">AB</option>
+			                <option  <?php echo ($blood_data->blood_type == 'o' )? 'selected' : '' ?> value="o">O</option>
+			                <option  <?php echo ($blood_data->blood_type == 'a')? 'selected' : '' ?> value="a">A</option>
+			                <option <?php echo ($blood_data->blood_type ==  'b')? 'selected' : '' ?> value="b">B</option>
+			                <option <?php echo ($blood_data->blood_type == 'ab')? 'selected' : '' ?>value="ab">AB</option>
 			            </select>
 					</div>
 					<div class="col-sm">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
-			                <option value="o-plus">O+</option>
-			                <option value="o-minus">O-</option>
-			                <option value="a-plus">A+</option>
-			                <option value="a-minus">A-</option>
-			                <option value="b-plus">B+</option>
-			                <option value="b-minus">B-</option>
-			                <option value="ab-plus">AB+</option>
-			                <option value="ab-minus">AB-</option>
+			                <option <?php echo ($blood_data->blood_group == 'o-plus')? 'selected' : '' ?> value="o-plus">O+</option>
+			                <option <?php echo ($blood_data->blood_group == 'o-minu')? 'selected' : '' ?> value="o-minus">O-</option>
+			                <option <?php echo ($blood_data->blood_group == 'a-plus')? 'selected' : '' ?> value="a-plus">A+</option>
+			                <option <?php echo ($blood_data->blood_group == 'a-minus')? 'selected' : '' ?>value="a-minus">A-</option>
+			                <option <?php echo ($blood_data->blood_group == 'b-plus')? 'selected' : '' ?>value="b-plus">B+</option>
+			                <option <?php echo ($blood_data->blood_group == 'b-minus')? 'selected' : '' ?>value="b-minus">B-</option>
+			                <option <?php echo ($blood_data->blood_group == 'ab-plus')? 'selected' : '' ?>value="ab-plus">AB+</option>
+			                <option <?php echo ($blood_data->blood_group == 'ab-minus')? 'selected' : '' ?>value="ab-minus">AB-</option>
 			            </select>
 					</div>
 				</div>
-			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name="edit_profile" type="submit">Submit</button>
+			    <button class="w-100 mt-2 btn btn-maroon btn-lg" name= 'triggers' value="edit_profile" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>

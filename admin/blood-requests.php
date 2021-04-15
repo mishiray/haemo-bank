@@ -99,6 +99,7 @@
 							<th>Blood Amount</th>
 							<th>Status</th>
 							<th>Date Needed</th>
+							<th>Purpose</th>
 							<th>Date Added</th>
 							<th colspan="2">#</th>
 						</tr>
@@ -114,7 +115,7 @@
 									<td> 
 										<?php echo ucwords($req->name) ?>							
 									</td>
-									<td><?php echo $req->blood_data->blood_group ?></td>
+									<td><?php echo (!empty($req->blood_data)) ? $req->blood_data->blood_group : ''?></td>
 									<td><?php echo $req->blood_amount ?></td>
 									<td><?php
 											if($req->status == 0){
@@ -133,6 +134,7 @@
 										?>
 									</td>
 									<td><?php echo $req->date_needed ?></td>
+									<td><?php echo $req->purpose ?></td>
 									<td><?php echo $req->date_added ?></td>
 									<td class="center">
 										<?php 
@@ -184,7 +186,7 @@
 								<td> 
 									<?php echo ucwords($req->name) ?> 							
 								</td>
-								<td><?php echo $req->blood_data->blood_group ?></td>
+								<td><?php echo (!empty($req->blood_data)) ?  $req->blood_data->blood_group : ''?></td>
 								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_added ?></td>
 								<td class="center">
@@ -220,6 +222,7 @@
 							<th>Blood Group</th>
 							<th>Blood Amount</th>
 							<th>Date Needed</th>
+							<th>Purpose</th>
 							<th colspan="2">#</th>
 						</tr>
 					</thead>
@@ -237,6 +240,7 @@
 								<td><?php echo $req->blood_data->blood_group ?></td>
 								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_needed ?></td>
+								<td><?php echo $req->purpose ?></td>
 								<td class="center">
 									<?php 
 										echo "

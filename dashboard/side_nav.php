@@ -21,7 +21,7 @@
 		<br>
 	    </li>
 	    <li class="nav-item">
-	      <a href="request.php" class="nav-link text-white <?php echo (in_array($sitePage, array('add-request.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="request.php" class="nav-link text-white <?php echo (in_array($sitePage, array('request.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-plus"></i>
 	        Request Blood
 	      </a>

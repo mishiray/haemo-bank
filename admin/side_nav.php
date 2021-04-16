@@ -11,7 +11,7 @@
 	      </a>
 	    </li>
 	    <li class="nav-item">
-	      <a href="edit-profile.php" class="nav-link text-white <?php echo (in_array($sitePage, array('add-request.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="edit-profile.php" class="nav-link text-white <?php echo (in_array($sitePage, array('edit-profile.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-user"></i>
 	        My Profile
 	      </a>

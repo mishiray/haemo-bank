@@ -3,9 +3,6 @@
 	//login function for php
 	session_start();
 	
-	// convert super globals to objects
-	$sessions = (object)$_SESSION;
-	$posts = (object)$_POST;
 
 	// Check if the user is already logged in, if yes then redirect him to the dashboard page
 	if(isset($sessions->loggedin) && $sessions->loggedin === true){
@@ -66,6 +63,9 @@
 					$_SESSION["loggedin"] = true;                            
 					$_SESSION["userinfo"] = $userinfo;
 
+					//log
+					logger($posts->email,"logged in","");
+					
 					// Redirect specified user to welcome page (admin/dashboard)
 					if(in_array($data->userrole,array('admin','sudo'))){
 						header("location: admin/index.php");

@@ -1,13 +1,22 @@
 <?php 
 	$title = 'Main Registration';
 
+	//login function for php
+	session_start();
+	
+
+	// Check if the user is already logged in, if yes then redirect him to the dashboard page
+	if(isset($sessions->loggedin) && $sessions->loggedin === true){
+		//redirect to admin or dashboard
+		$location = ($userinfo->userrole == 'admin') ? 'admin' : 'dashboard';
+		header("Location: $location");
+		exit;
+	}
+
 	//database connection
 	require_once "config.php";
 
-	
-	// convert super globals to objects
-	$posts = (object)$_POST;
-
+		
 	//check if submit is clicked
 	if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["register"])){
 		$posts = (object)$_POST;

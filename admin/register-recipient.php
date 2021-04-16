@@ -4,8 +4,8 @@
 
 	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'add_donor'){
-		$sql = "INSERT INTO `recipients` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`status`) VALUES 
-								('$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed',0)";
+		$sql = "INSERT INTO `recipients` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
+								('$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "New request has been added";
@@ -94,6 +94,10 @@
 					<div class="col-sm">
 					    <label for="dateNeeded" class="">Date Neededd</label>
 					    <input type="date" id="dateNeeded" class="form-control" name="date_needed"> 
+					</div>
+					<div class="col-12">
+					    <label for="inputPurpose" class="">Purpose</label>
+					    <textarea id="inputPurpose" class="form-control" name="purpose" required></textarea>
 					</div>
 					<div class="col-12">
 					    <label for="inputAddress" class="">Address</label>

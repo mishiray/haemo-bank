@@ -107,6 +107,12 @@
 						<span><?php echo $request->date_needed;?></span>
 					</p>
 				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Purpose:</span>
+						<span><?php echo $request->purpose;?></span>
+					</p>
+				</div>
 			</div>
 			<div style="margin: 50px auto; text-align: center;">
 				<?php 

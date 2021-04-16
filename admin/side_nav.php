@@ -10,11 +10,17 @@
 	        Dashboard
 	      </a>
 	    </li>
+	    <li class="nav-item">
+	      <a href="edit-profile.php" class="nav-link text-white <?php echo (in_array($sitePage, array('edit-profile.php'))) ? 'active' : '' ?> pr-1">
+	        <i class="fa fa-user"></i>
+	        My Profile
+	      </a>
+	    </li>
 		<?php 
 			if($userinfo->userrole == 'sudo'){
 		?>
 			<li class="nav-item">
-	      		<a href="users.php" class="nav-link text-white <?php echo (in_array($sitePage, array('users.php'))) ? 'active' : '' ?> pr-1">
+	      		<a href="users.php" class="nav-link text-white <?php echo (in_array($sitePage, array('users.php','user-details.php'))) ? 'active' : '' ?> pr-1">
 					<i class="fa fa-user"></i>
 					Manage Users
 				</a>

@@ -3,8 +3,7 @@
 
 
 	$title= 'Blood Donation Request Page';
-	
-
+	include '../base.php';
 	
 ?>
 	<?php include "top.php"?>

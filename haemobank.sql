@@ -74,3 +74,11 @@ foreign key (donor_id) references donor(id),
 status int(1) NOT NULL DEFAULT 1,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
+
+create table log(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+email varchar(100) not null,
+activity longtext not null,
+`table` varchar(50) null,
+date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

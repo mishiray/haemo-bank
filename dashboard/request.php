@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Blood Donation Request Page</title>
-	<link rel="stylesheet" type="text/css" href="../includes/style.css">
-</head>
-<body>
-	<div class="container">
+<?php
+
+
+
+	$title= 'Blood Donation Request Page';
+	
+
+	
+?>
+	<?php include "top.php"?>
+	<div class="main p-3 container">
 		<h3 class="text-center">Make a request</h3>
 		<div class="col-8" style="margin: 0 auto;">
 			<form>
@@ -27,5 +30,4 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+	<?php include 'buttom.php';

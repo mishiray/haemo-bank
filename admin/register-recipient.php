@@ -37,7 +37,7 @@
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">Register a blood recipient</h3>
 		<div class="col-10" style="margin: 0 auto;">
-			<form method="POST" name="add_donor">
+			<form method="POST" >
 				<div class="row">
 					<div class="col-sm">
 					    <label for="inputFirstName" class="">Full Name</label>

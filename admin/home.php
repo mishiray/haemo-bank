@@ -9,7 +9,7 @@
 	$donor = $result->num;	
 
 	//recipients available
-	$sql = "SELECT COUNT(`email`) as num FROM `recipients` WHERE `status` = 1 ";
+	$sql = "SELECT COUNT(`email`) as num FROM `recipients` WHERE `status` = 0 ";
 	$result = mysqli_query($conn, $sql);
 	$result =  mysqli_fetch_object($result);
 	$recipient = $result->num;	
@@ -25,10 +25,8 @@
 	$result = mysqli_query($conn, $sql);
 	$result =  mysqli_fetch_object($result);
 	$test = $result->num;	
-
-
-
 ?>
+
 <?php include "top.php"?>
 <!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">

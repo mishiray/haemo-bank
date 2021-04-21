@@ -79,6 +79,7 @@
 ?>
 <?php include "includes/top.php"?>
 <!-- start main coding here -->
+<div class="card-box col-12">
 	<div class="container">
 		<h3 class="text-center">Register with us now</h3>
 		<div class="col-8" style="margin: 0 auto;">
@@ -157,5 +158,6 @@
 			</form>
 		</div>
 	</div>
+</div>
 <!-- end main coding here -->
 <?php include "includes/buttom.php"?>

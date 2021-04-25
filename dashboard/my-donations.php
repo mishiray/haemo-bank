@@ -2,6 +2,15 @@
 	require_once "../base.php";
 	$title = "My Blood Donations";
 	
+	$sql = "SELECT * FROM `donor` WHERE `email` = '$userinfo->email' ORDER BY `date_added` DESC ";
+    $result = mysqli_query($conn, $sql);
+    $donors = [];
+    if(!empty($result)){
+        while ($entry = mysqli_fetch_object($result)) {
+           $donors[] = $entry;
+        }
+    }
+
 ?>
 <?php include "top.php"?>
 <!-- start here-->
@@ -27,26 +36,39 @@
 					  </thead>
 					  <tbody>
 							<?php 
-								if(!empty($requests)){
+								if(!empty($donors)){
 									$count = 1;
-									foreach($requests as $req){
+									foreach($donors as $donor){
 							?>       
 								<tr class='odd gradeX'>
 									<td>
-									
+										<?php echo $count++; ?>
 									</td>
 									<td>
-									
+										<?php echo $donor->amount; ?>
 									</td>
 									<td>
-									
+										<?php
+											if($donor->status == 0){
+												echo "NOT TESTED";
+											}
+											elseif($donor->status == 1){
+												echo "OKAY - AVAILABLE";
+											}elseif($donor->status == 3){
+												echo "Not Available";
+											}
+										?>
 									</td>
 									<td>
-									
+										<?php echo $donor->date_added; ?>
 									</td>
-									<td>
-									
-									</td>
+									<td class="center">
+										<?php 
+											echo "
+												<a type='button' href='view-donor.php?id=$donor->id' class='btn btn-primary'>View</a>
+											";
+										?>
+                        			</td>
 								</tr>
 							<?php
 									}

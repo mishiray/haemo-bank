@@ -2,6 +2,24 @@
 	require_once "../base.php";
 	$title = "My Blood Requests";
 	
+	$sql = "SELECT * FROM `recipients` WHERE `email` = ORDER BY `date_added` DESC ";
+    $result = mysqli_query($conn, $sql);
+    $requests = [];
+    if(!empty($result)){
+        while ($entry = mysqli_fetch_object($result)) {
+           $requests[] = $entry;
+        }
+		if(!empty($requests)){
+			foreach($requests as $value){
+				if(!empty($value->email)){
+					$sql = "SELECT * FROM `blood_data` WHERE `email` = '$value->email'";
+					$result = mysqli_query($conn, $sql);
+					$value->blood_data = mysqli_fetch_object($result);
+				}
+			}
+		}
+    }
+
 ?>
 <?php include "top.php"?>
 <!-- start here-->

@@ -2,7 +2,6 @@
 	$title = 'Login';
 	//login function for php
 	session_start();
-	
 
 	// Check if the user is already logged in, if yes then redirect him to the dashboard page
 	if(isset($sessions->loggedin) && $sessions->loggedin === true){
@@ -90,32 +89,34 @@
 ?>
 <?php include "includes/top.php"?>
 <!-- start main coding here -->
-	<div class="container">
-		<h3 class="text-center">Login to your account</h3>
-		<div class="col-6" style="margin: 0 auto;">
-			<form action="" method="POST">
-				<div class="row">
-					<div class="col-12">
-					    <label for="inputEmail" class="">Email Address</label>
-						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
+	<div class="container bloodbg justify-content-center">
+		<div class="card-box col-6 col-md p-3 ">
+			<h3 class="text-center">Login to your account</h3>
+			<div class="col-6" style="margin: 0 auto;">
+				<form action="" method="POST">
+					<div class="row">
+						<div class="col-12">
+							<label for="inputEmail" class="">Email Address</label>
+							<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
+						</div>
+						<div class="col-12">
+							<label for="inputPassword" class="">Password</label>
+							<input type="password" id="inputPassword" name="password" class="form-control" required>
+						</div>
 					</div>
-					<div class="col-12">
-						<label for="inputPassword" class="">Password</label>
-						<input type="password" id="inputPassword" name="password" class="form-control" required>
+					<?php 
+						if(!empty($fail)){
+							echo '<div class="danger" style="vertical-align: middle; width: 100% !important; "><h3>Error Messages</h3> '.$fail.'</div>';
+						}
+					?>
+					<button class="w-100 btn mt-2 btn-maroon btn-lg" name="login" type="submit">Login</button><div class="row">
+						<div class="col">
+							<p class="mt-2 ">Don't have an account?</p>
+							<a href="main-registration.php" class="w-100 btn btn-md danger pb-3">Register Now</a>
+						</div>
 					</div>
-				</div>
-				<?php 
-                    if(!empty($fail)){
-                        echo '<div class="danger" style="vertical-align: middle; align-self: center; width: 50% !important; "><h3>Error Messages</h3> '.$fail.'</div>';
-                    }
-                ?>
-			    <button class="w-100 btn mt-2 btn-maroon btn-lg" name="login" type="submit">Login</button><div class="row">
-					<div class="col">
-						<p class="mt-2 ">Don't have an account?</p>
-						<a href="main-registration.php" class="w-100 btn btn-md btn-success">Register Now</a>
-					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
 <!-- end main coding here -->

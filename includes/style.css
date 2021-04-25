@@ -1,5 +1,6 @@
 html,
 body {
+    --mdc-typography-font-family: Arial, Helvetica, sans-serif;
     top: 0;
     bottom: 0;
     left: 0;
@@ -8,7 +9,7 @@ body {
 
 body {
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -16,6 +17,21 @@ body {
     background-color: #fff;
 }
 
+.bloodbg{
+    background-image: url("../images/blood-bank.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    background-image: url("../images/logo.png");
+}
+
+h3{
+    font-size: 16px;
+    text-transform: none;
+}
 .container {
     width: auto;
     padding: 50px 0;
@@ -90,6 +106,10 @@ label {
 
 @media (max-width: 767px) {
     .col-sm {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .col-6 {
         flex: 0 0 auto;
         width: 100%;
     }
@@ -244,14 +264,28 @@ form {
 }
 
 .text-center {
-    text-align: center;
+    text-align: center!important;
 }
-
+.card-box {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: white;
+    transition: 0.3s;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
 /* styles for colors*/
 .danger {
     color: white;
     background-color: rgb(182, 59, 59);
-    margin: 10px;
+    margin-top: 10px;
     padding: 2px 2px;
     padding-left: 10px;
 }

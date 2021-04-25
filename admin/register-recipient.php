@@ -1,9 +1,9 @@
 <?php 
 	require_once "../base.php";
-	$title = "Register a donor";
+	$title = "Register a recipient";
 
 	//check if submit
-	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'add_donor'){
+	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'add_recipient'){
 		$sql = "INSERT INTO `recipients` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
 								('$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
 
@@ -109,7 +109,7 @@
 						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
-			    <button class="w-100 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="add_donor">Submit</button>
+			    <button class="w-100 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="add_recipient">Submit</button>
 			</form>
 		</div>
 	</div>

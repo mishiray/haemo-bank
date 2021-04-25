@@ -24,11 +24,7 @@
 
 			//insert query
 			$query1 = "UPDATE `userprofile` SET `name` = '$posts->name' , `phone` = '$posts->phone', `gender` = '$posts->gender', `address` = '$posts->address', `dob` = '$posts->dob' WHERE `email` = '$userinfo->email'"; 
-			$sql = "SELECT * FROM `userprofile` WHERE `email` = '$userinfo->email' ";
-			$userinfo = mysqli_fetch_object(mysqli_query($conn, $sql));                    
-			$_SESSION["userinfo"] = $userinfo;
 			
-
 			//check if blood data with email exists
 			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$userinfo->email' ";
 			//perform query 
@@ -41,6 +37,9 @@
 			}
 
 			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
+				$sql = "SELECT * FROM `userprofile` WHERE `email` = '$userinfo->email' ";
+				$user_data = mysqli_fetch_object(mysqli_query($conn, $sql));                    
+				$_SESSION["userinfo"] = $user_data;
 				$fail .= "<p>You have successfully updated your profile</p>";
 
 			}else{

@@ -79,6 +79,7 @@
 ?>
 <?php include "includes/top.php"?>
 <!-- start main coding here -->
+<div class="card-box col-12">
 	<div class="container">
 		<h3 class="text-center">Register with us now</h3>
 		<div class="col-8" style="margin: 0 auto;">
@@ -151,11 +152,12 @@
 				<div class="row">
 					<div class="col">
 						<p class="mt-2 ">Already have an account?</p>
-						<a href="login.php" class="w-100 btn btn-md btn-success">Login</a>
+						<a href="login.php" class="w-100 btn btn-md danger">Login</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
+</div>
 <!-- end main coding here -->
 <?php include "includes/buttom.php"?>

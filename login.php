@@ -2,7 +2,6 @@
 	$title = 'Login';
 	//login function for php
 	session_start();
-	
 
 	// Check if the user is already logged in, if yes then redirect him to the dashboard page
 	if(isset($sessions->loggedin) && $sessions->loggedin === true){
@@ -113,7 +112,7 @@
 					<button class="w-100 btn mt-2 btn-maroon btn-lg" name="login" type="submit">Login</button><div class="row">
 						<div class="col">
 							<p class="mt-2 ">Don't have an account?</p>
-							<a href="main-registration.php" class="w-100 btn btn-md btn-success pb-3">Register Now</a>
+							<a href="main-registration.php" class="w-100 btn btn-md danger pb-3">Register Now</a>
 						</div>
 					</div>
 				</form>

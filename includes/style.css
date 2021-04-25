@@ -24,6 +24,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.logo{
+    background-image: url("../images/logo.png");
+}
+
 h3{
     font-size: 16px;
     text-transform: none;

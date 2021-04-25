@@ -59,30 +59,7 @@
 						";
 					}
 				?>
-				<div class="col-12">
-					<p>
-						<span class="pr-3" style="font-weight: 600;">Name:</span>
-						<span><?php echo "$request->name";?></span>
-					</p>
-				</div>
-				<div class="col-12">
-					<p>
-						<span class="pr-3" style="font-weight: 600;">Gender:</span>
-						<span><?php echo "$request->gender";?></span>
-					</p>
-				</div>
-				<div class="col-12">
-					<p>
-						<span class="pr-3" style="font-weight: 600;">Date of Birth:</span>
-						<span><?php echo "$request->dob";?></span>
-					</p>
-				</div>
-				<div class="col-12">
-					<p>
-						<span class="pr-3" style="font-weight: 600;">Address:</span>
-						<span><?php echo $request->address;?></span>
-					</p>
-				</div>
+				
 				<div class="col-12">
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Type:</span>

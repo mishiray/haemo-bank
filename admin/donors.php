@@ -1,6 +1,7 @@
 <?php 
 	require_once "../base.php";
 	$title = "Donors";
+
 	$sql = "SELECT * FROM `donor` ORDER BY `date_added` DESC ";
     $result = mysqli_query($conn, $sql);
     $donors = [];

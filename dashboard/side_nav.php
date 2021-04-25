@@ -27,20 +27,20 @@
 	      </a>
 	    </li>
 	    <li class="nav-item">
-	      <a href="donors.php" class="nav-link text-white <?php echo (in_array($sitePage, array('requests.php','view-donor.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="my-requests.php" class="nav-link text-white <?php echo (in_array($sitePage, array('requests.php','my-requests.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-tint"></i>
 	        My Requests
 	      </a>
 	    </li>
 		<hr class="w-100">
 	    <li class="nav-item">
-	      <a href="register-recipient.php" class="nav-link text-white <?php echo (in_array($sitePage, array('add-donate.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="donate.php" class="nav-link text-white <?php echo (in_array($sitePage, array('donate.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-plus"></i>
 	        Donate Blood
 	      </a>
 	    </li>
 	    <li>
-	      <a href="blood-requests.php" class="nav-link <?php echo (in_array($sitePage, array('donations.php'))) ? 'active' : '' ?> text-white pr-1">
+	      <a href="my-donations.php" class="nav-link <?php echo (in_array($sitePage, array('my-donations.php'))) ? 'active' : '' ?> text-white pr-1">
 	        <i class="fa fa-tint"></i>
 	        My Donations
 	      </a>

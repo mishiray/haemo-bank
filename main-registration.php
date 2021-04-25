@@ -152,7 +152,7 @@
 				<div class="row">
 					<div class="col">
 						<p class="mt-2 ">Already have an account?</p>
-						<a href="login.php" class="w-100 btn btn-md btn-success">Login</a>
+						<a href="login.php" class="w-100 btn btn-md danger">Login</a>
 					</div>
 				</div>
 			</form>

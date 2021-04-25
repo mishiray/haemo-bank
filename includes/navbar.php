@@ -1,5 +1,5 @@
 
-	<div class="topnav purple" id="myTopnav">
+	<div class="topnav maroon" id="myTopnav">
 		<a class="navbar-brand active" href="#">Haemo-Bank</a>
 		<div class="float-right">
 		  <a href="index.php" class="">Home</a>

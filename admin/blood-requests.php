@@ -70,10 +70,9 @@
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">Blood Recipient Requests</h3>
 		
-		
-				<?php 
+		<?php 
 					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
 		<div class="col-10" style="margin: 0 auto;">
@@ -95,7 +94,7 @@
 						<tr>
 							<th>SN</th>
 							<th>Name</th>
-							<th>Blood Group</th>
+							<th>Blood Type</th>
 							<th>Blood Amount</th>
 							<th>Status</th>
 							<th>Date Needed</th>
@@ -115,7 +114,7 @@
 									<td> 
 										<?php echo ucwords($req->name) ?>							
 									</td>
-									<td><?php echo (!empty($req->blood_data)) ? $req->blood_data->blood_group : ''?></td>
+									<td><?php echo (!empty($req->blood_data)) ? $req->blood_data->blood_type : ''?></td>
 									<td><?php echo $req->blood_amount ?></td>
 									<td><?php
 											if($req->status == 0){
@@ -169,7 +168,7 @@
 					  <tr>
 					    <th>SN</th>
 						<th>Name</th>
-						<th>Blood Group</th>
+						<th>Blood Type</th>
 						<th>Blood Amount</th>
 					    <th>Date Approved</th>
 						<th>#</th>
@@ -186,7 +185,7 @@
 								<td> 
 									<?php echo ucwords($req->name) ?> 							
 								</td>
-								<td><?php echo (!empty($req->blood_data)) ?  $req->blood_data->blood_group : ''?></td>
+								<td><?php echo (!empty($req->blood_data)) ?  $req->blood_data->blood_type : ''?></td>
 								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_added ?></td>
 								<td class="center">
@@ -219,7 +218,7 @@
 						<tr>
 							<th>SN</th>
 							<th>Name</th>
-							<th>Blood Group</th>
+							<th>Blood Type</th>
 							<th>Blood Amount</th>
 							<th>Date Needed</th>
 							<th>Purpose</th>
@@ -237,7 +236,7 @@
 								<td> 
 									<?php echo ucwords($req->name) ?> 							
 								</td>
-								<td><?php echo $req->blood_data->blood_group ?></td>
+								<td><?php echo $req->blood_data->blood_type ?></td>
 								<td><?php echo $req->blood_amount ?></td>
 								<td><?php echo $req->date_needed ?></td>
 								<td><?php echo $req->purpose ?></td>

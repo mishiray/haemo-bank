@@ -18,9 +18,12 @@
 				$request->blood_data = mysqli_fetch_object($result);
 				$blood_group = $request->blood_data->blood_group;
 				$blood_type = $request->blood_data->blood_type;
-				//select donors that are available
-				$sql = "SELECT d.id as id, d.name as name, b.blood_group as blood_group, b.blood_type as blood_type, d.date_added as date_added FROM `donor` as d INNER JOIN `blood_data` as b ON d.email = b.email WHERE b.blood_group = '$blood_group' AND b.blood_type = '$blood_type' AND d.status = 1 ";
-				
+
+				//select donors that are available givesTo
+				$range = givesTo($blood_type);
+				$range = implode("', '", $range);
+				//$sql = "SELECT d.id as id, d.name as name, b.blood_group as blood_group, b.blood_type as blood_type, d.date_added as date_added FROM `donor` as d INNER JOIN `blood_data` as b ON d.email = b.email WHERE b.blood_type = '$blood_type' AND d.status = 1 ";
+				$sql = "SELECT d.id as id, d.name as name, b.blood_group as blood_group, b.blood_type as blood_type, d.date_added as date_added FROM `donor` as d INNER JOIN `blood_data` as b ON d.email = b.email WHERE b.blood_type IN ('$range') AND d.status = 1 ";
 				$result = mysqli_query($conn, $sql);
 				$donors = [];
 				if(!empty($result)){
@@ -63,9 +66,10 @@
 <!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">Donors</h3>
-				<?php 
+		
+		<?php 
 					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
 		<div class="col-10" style="margin: 0 auto;">
@@ -75,7 +79,7 @@
 					<tr>
 						<th>SN</th>
 						<th>Name</th>
-						<th>Blood Data</th>
+						<th>Blood Type</th>
 						<th>Date Donated</th>
 						<th></th>
 				  </tr>
@@ -91,7 +95,7 @@
                             <td> 
 								<?php echo ucwords($donor->name) ?> <br>							
 							</td>
-                            <td><?php echo $donor->blood_group ?></td>
+                            <td><?php echo $donor->blood_type ?></td>
                             <td><?php echo $donor->date_added ?></td>
                             <td class="center">
 			        		<?php 

@@ -1,4 +1,4 @@
- function genPassword(len){
+    function genPassword(len){
         var result = '';
         var characters  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
@@ -16,4 +16,8 @@
         } else {
             x.className = "topnav";
         }
+    }
+
+    function goBack(){
+        window.history.back();
     }

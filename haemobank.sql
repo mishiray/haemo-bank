@@ -20,6 +20,22 @@ blood_test int(1) DEFAULT 1 not null,
 status int(1) NOT NULL DEFAULT 1,
 date_added datetime DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
+create table compatibility(
+blood_type varchar(30) not null,
+give varchar(30) not null,
+receive varchar(30) not null
+);
+
+
+INSERT INTO `compatibility` (`blood_type`,`give`,`receive`) VALUES 
+    ('o-plus','["a-plus","o-plus","b-plus","ab-plus"]','["o-plus","o-minus"]'),
+    ('o-minus','["a-plus","a-minus","o-plus","o-minus","b-plus","b-minus","ab-minus","ab-plus"]','["o-minus"]'),
+    ('a-plus','["a-plus","ab-plus"]','["a-plus","a-minus","o-plus","o-minus"]'),
+    ('a-minus','["ab-minus","a-minus","ab-plus","a-plus"]','["a-minus","o-minus"]'),
+    ('b-plus','["b-plus","ab-plus"]','["b-plus","b-minus","o-plus","o-minus"]'),
+    ('b-minus','["b-plus","b-minus","ab-minus","ab-plus"]','["b-minus","o-minus"]'),
+    ('ab-plus','["ab-plus"]','["a-plus","a-minus","o-plus","o-minus","b-plus","b-minus","ab-minus","ab-plus"]'),
+    ('ab-minus','["ab-minus","ab-plus"]','["ab-minus","a-minus","b-minus","o-minus"]')
 
 create table userprofile(
 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

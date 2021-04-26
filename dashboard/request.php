@@ -5,8 +5,9 @@
 
 	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'request_blood'){
-		$sql = "INSERT INTO `recipients` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
-								('$userinfo->name','$userinfo->phone','$userinfo->gender','$userinfo->dob','$userinfo->email','$userinfo->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
+		$token  = stringGen(6);
+		$sql = "INSERT INTO `recipients` (`token`,`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
+								(`$token`,'$userinfo->name','$userinfo->phone','$userinfo->gender','$userinfo->dob','$userinfo->email','$userinfo->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "New request has been added";

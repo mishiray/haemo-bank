@@ -21,15 +21,15 @@
     }
 
 	
-	//check if assign donor
-	if($_SERVER['REQUEST_METHOD'] == 'POST' and $post->triggers == 'approve_donor'){
+	//check if approve donor
+	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'approve_donor'){
                 
-		$sql = "UPDATE TABLE `donor` SET `status` = 1 WHERE `id` = '$posts->donor_id' ";
+		$sql = "UPDATE `donor` SET `status` = 1 WHERE `id` = '$posts->donor_id' ";
 		if(mysqli_query($conn, $sql)){
 			$fail = "Donor has been approved";
 		
 		}else{
-			$fail = "Error, Try again";
+			$fail = "Error, Try again ".mysqli_error($conn);
 		}
 	
 	}
@@ -40,12 +40,6 @@
 <!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">Donors</h3>
-		
-				<?php 
-					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
-					}
-				?>
 		<div class="col-10" style="margin: 0 auto;">
 			<a type="button" href="./register-donor.php" class="btn btn-primary" style="float: right; margin: 30px 0px;"><i class="fa fa-plus pr-1"></i>Add new</a>
 			<table>
@@ -97,8 +91,8 @@
 								<?php
 									if($donor->status == 0){
 									?>
-										<form action="" method="post" name="approve_donor">
-											<input type="hidden" name="donor_id" value="<?php echo $donor->id ?>">
+										<form action="" method="post">
+											<input type="hidden" name="donor_id" value="<?php echo $donor->id; ?>">
 											<button type="submit" class='btn btn-info' name="triggers" value="approve_donor">Approve</button>
 										</form>
 								<?php
@@ -115,6 +109,12 @@
                 	?>
 				</tbody>
 			</table>
+			
+			<?php 
+					if(!empty($fail)){
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+					}
+				?>
 		</div>
 	</div>
 <!-- end here-->

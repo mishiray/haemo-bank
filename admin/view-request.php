@@ -28,11 +28,12 @@
 	<div class="main p-3 container" style=" min-height: 100vh;">
 		<h3 class="text-center">View request</h3>
 		<div class="col-10" style="margin: 0 auto;">
+		
 		<?php 
-			if(!empty($fail)){
-				echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
-			}
-		?>
+					if(!empty($fail)){
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+					}
+				?>
 		<?php 
 			if(!empty($request)){
 		?>

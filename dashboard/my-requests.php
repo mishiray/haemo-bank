@@ -9,6 +9,16 @@
         while ($entry = mysqli_fetch_object($result)) {
            $requests[] = $entry;
         }
+		if(!empty($requests)){
+			foreach($requests as $value){
+				if($value->status == 3){
+					$sql = "SELECT * FROM `transact` WHERE transact.token = '$value->token'";
+					$result = mysqli_query($conn, $sql);
+					$transact = mysqli_fetch_object($result);
+					$value->donor_id  = $transact->donor_id;
+				}
+			}
+		}
     }
 
 ?>
@@ -45,7 +55,7 @@
 										<?php echo $count++; ?>
 									</td>
 									<td>
-										<?php echo $req->amount ?>
+										<?php echo $req->blood_amount ?>
 									</td>
 									<td>
 									<?php
@@ -82,9 +92,11 @@
 								</td>
 								<td class="center">
 									<?php 
-										echo "
-											<a type='button' href='view-donor.php?id=$req->donor_id' class='btn btn-success'>View Donor</a>
-										";
+										if($req->status == 3){
+											echo "
+												<a type='button' href='view-donor.php?id=$req->donor_id' class='btn btn-success'>View Donor</a>
+											";
+										}
 									?>
 								</td>
 								</tr>

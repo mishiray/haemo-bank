@@ -64,8 +64,8 @@
 						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodType" class="">Blood Type</label>
-					    <select class="form-select" id="inputBloodType" name="blood_type" required>
+					    <label for="inputBloodGroup" class="">Blood Group</label>
+					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
 			                <option value="o">O</option>
 			                <option value="a">A</option>
@@ -74,8 +74,8 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodGroup" class="">Blood Group</label>
-					    <select class="form-control" id="inputBloodGroup" name="blood_group" required>
+					    <label for="inputBloodType" class="">Blood Type</label>
+					    <select class="form-control" id="inputBloodType" name="blood_type" required>
 			                <option selected disabled value="">Choose...</option>
 			                <option value="o-plus">O+</option>
 			                <option value="o-minus">O-</option>
@@ -101,9 +101,10 @@
 					    <input type="radio" id="bloodTest2" class="form-control-radio" name="blood_test" value="0"> No
 					</div>
 				</div>
+				
 				<?php 
 					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
 			    <button class="w-100 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="add_donor">Submit</button>

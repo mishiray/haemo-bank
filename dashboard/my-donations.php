@@ -45,7 +45,7 @@
 										<?php echo $count++; ?>
 									</td>
 									<td>
-										<?php echo $donor->amount; ?>
+										<?php echo $donor->blood_amount; ?>
 									</td>
 									<td>
 										<?php
@@ -65,7 +65,7 @@
 									<td class="center">
 										<?php 
 											echo "
-												<a type='button' href='view-donor.php?id=$donor->id' class='btn btn-primary'>View</a>
+												<a type='button' href='view-donation.php?id=$donor->id' class='btn btn-primary'>View</a>
 											";
 										?>
                         			</td>

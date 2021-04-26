@@ -61,6 +61,12 @@
 	    </li>
 		<hr class="w-100">
 	    <li>
+	      <a href="compatibility.php" class="nav-link text-white pr-1">
+	        <i class="fa fa-file"></i>
+	        Blood Compatibility Sheet
+	      </a>
+	    </li>
+		<li>
 	      <a href="../logout.php" class="nav-link text-white pr-1">
 	        <i class="fa fa-arrow-left"></i>
 	        Logout

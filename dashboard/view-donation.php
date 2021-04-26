@@ -60,6 +60,24 @@
 				?>
 				<div class="col-12">
 					<p>
+						<span class="pr-3" style="font-weight: 600;">Name:</span>
+						<span><?php echo ucwords($donor->name);?></span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Phone Number:</span>
+						<span><?php echo $donor->phone;?></span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Email:</span>
+						<span><?php echo $donor->email;?></span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Type:</span>
 						<span><?php echo $donor->blood_data->blood_type;?></span>
 					</p>
@@ -68,12 +86,6 @@
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Group:</span>
 						<span><?php echo $donor->blood_data->blood_group;?></span>
-					</p>
-				</div>
-				<div class="col-12">
-					<p>
-						<span class="pr-3" style="font-weight: 600;">Blood amount donated(ml):</span>
-						<span><?php echo $donor->blood_amount; ?></span>
 					</p>
 				</div>
 			</div>

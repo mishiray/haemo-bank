@@ -12,9 +12,15 @@
 	    </li>
 	    </li>
 	    <li class="nav-item">
-	      <a href="edit-profile.php" class="nav-link text-white <?php echo (in_array($sitePage, array('add-request.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="edit-profile.php" class="nav-link text-white <?php echo (in_array($sitePage, array('edit-profile.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-user"></i>
 	        My Profile
+	      </a>
+	    </li>
+		<li>
+	      <a href="compatibility.php" class="nav-link text-white  <?php echo (in_array($sitePage, array('compatibility.php'))) ? 'active' : '' ?> pr-1">
+	        <i class="fa fa-file"></i>
+	        Blood Compatibility Sheet
 	      </a>
 	    </li>
 	    <li>
@@ -27,7 +33,7 @@
 	      </a>
 	    </li>
 	    <li class="nav-item">
-	      <a href="my-requests.php" class="nav-link text-white <?php echo (in_array($sitePage, array('requests.php','my-requests.php'))) ? 'active' : '' ?> pr-1">
+	      <a href="my-requests.php" class="nav-link text-white <?php echo (in_array($sitePage, array('view-request.php','my-requests.php'))) ? 'active' : '' ?> pr-1">
 	        <i class="fa fa-tint"></i>
 	        My Requests
 	      </a>
@@ -40,7 +46,7 @@
 	      </a>
 	    </li>
 	    <li>
-	      <a href="my-donations.php" class="nav-link <?php echo (in_array($sitePage, array('my-donations.php'))) ? 'active' : '' ?> text-white pr-1">
+	      <a href="my-donations.php" class="nav-link <?php echo (in_array($sitePage, array('my-donations.php','view-donation'))) ? 'active' : '' ?> text-white pr-1">
 	        <i class="fa fa-tint"></i>
 	        My Donations
 	      </a>

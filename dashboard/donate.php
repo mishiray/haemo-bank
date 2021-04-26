@@ -34,12 +34,12 @@
 					    <input type="date" id="inputDate" class="form-control" name="date_added" >
 					</div>
 				</div>
+			    <button class="w-50 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="donate">Submit</button>
 				<?php 
 					if(!empty($fail)){
 						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
-			    <button class="w-50 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="donate">Submit</button>
 			</form>
 		</div>
 	</div>

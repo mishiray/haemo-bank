@@ -33,9 +33,10 @@
 		<h3 class="text-center">View  donor</h3>
 		<div class="col-10" style="margin: 0 auto;">
 			<a type="button" href="./register-donor.php" class="btn btn-primary" style="float: right; margin-bottom: 60px"><i class="fa fa-edit pr-1"></i>Add Donor</a>
+			
 			<?php 
 					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
 				?>
 		<?php 

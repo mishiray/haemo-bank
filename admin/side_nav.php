@@ -67,6 +67,12 @@
 	      </a>
 	    </li>
 		<li>
+	      <a href="logs.php" class="nav-link text-white  <?php echo (in_array($sitePage, array('logs.php'))) ? 'active' : '' ?>  pr-1">
+	        <i class="fa fa-file"></i>
+	        View Logs
+	      </a>
+	    </li>
+		<li>
 	      <a href="../logout.php" class="nav-link text-white pr-1">
 	        <i class="fa fa-arrow-left"></i>
 	        Logout

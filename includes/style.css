@@ -24,6 +24,11 @@ body {
     background-repeat: no-repeat;
 }
 
+
+.youths{
+    background-image: url("../images/youths.jpg");
+}
+
 .logo{
     background-image: url("../images/logo.png");
 }
@@ -92,6 +97,10 @@ label {
 .col-6 {
     flex: 0 0 auto;
     width: 48%;
+}
+.col-4 {
+    flex: 0 0 auto;
+    width: 33%;
 }
 
 .col-8 {
@@ -220,6 +229,11 @@ form {
     background-color: rgb(63, 182, 59);
     border-color: rgb(63, 182, 59);
 }
+.btn-navy {
+    color: #fff;
+    background-color: rgb(4, 2, 112);
+    border-color: rgb(4, 2, 112);
+}
 
 .btn-maroon {
     color: #fff;
@@ -263,8 +277,19 @@ form {
     margin-top: 2rem;
 }
 
+.aboutfix{
+    margin-top: 140px!important;
+    margin-left: 4em!important;
+}
+
 .text-center {
     text-align: center!important;
+}
+.justify-left{
+    float: left;
+}
+.justify-right{
+    float: right;
 }
 .card-box {
     /* Add shadows to create the "card" effect */

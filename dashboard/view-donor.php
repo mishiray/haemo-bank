@@ -18,6 +18,11 @@
 				$result = mysqli_query($conn, $sql);
 				$donor->blood_data = mysqli_fetch_object($result);
 			}
+			//check if donor has donated before by counting appearance on table
+			$sql = "SELECT COUNT(`email`) as num FROM `donor` WHERE `email` = '$donor->email' ";
+			$result = mysqli_query($conn, $sql);
+			$result =  mysqli_fetch_object($result);
+			$donor->count = $result->num;
 		}
 	}
 	
@@ -25,13 +30,14 @@
 <?php include "top.php"?>
 <!-- start here-->
 	<div class="main p-3 container" style=" min-height: 100vh;">
-		<h3 class="text-center">View  Donation</h3>
+		<h3 class="text-center">View  donor</h3>
 		<div class="col-10" style="margin: 0 auto;">
+			
 			<?php 
 					if(!empty($fail)){
-						echo '<div class="info text-center" style="position: absolute; z-index: 99999; vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
 					}
-			?>
+				?>
 		<?php 
 			if(!empty($donor)){
 		?>	
@@ -86,6 +92,22 @@
 					<p>
 						<span class="pr-3" style="font-weight: 600;">Blood Group:</span>
 						<span><?php echo $donor->blood_data->blood_group;?></span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Blood amount donated(ml):</span>
+						<span><?php echo $donor->blood_amount; ?></span>
+					</p>
+				</div>
+				<div class="col-12">
+					<p>
+						<span class="pr-3" style="font-weight: 600;">Times donor has donated blood</span>
+						<span>
+							<?php 
+								echo $donor->count.' times';
+							?>
+						</span>
 					</p>
 				</div>
 			</div>

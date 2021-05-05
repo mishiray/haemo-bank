@@ -46,7 +46,7 @@
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "Request has been approved";
-
+			logger($userinfo->email,"assign-donor","transact");
 			//update donor and recipient tables
 			$sql = "UPDATE `donor` SET `status` = 3 WHERE `id` = '$posts->donor_id' ";
 			$sql2 = "UPDATE `recipients` SET `status` = 3 WHERE `id` = '$posts->request_id' ";

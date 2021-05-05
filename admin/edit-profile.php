@@ -38,6 +38,7 @@
 			}
 
 			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
+				logger($userinfo->email,"update-profile","userprofile");
 				$sql = "SELECT * FROM `userprofile` WHERE `email` = '$userinfo->email' ";
 				$user_data = mysqli_fetch_object(mysqli_query($conn, $sql));         
 				$fail .= "<p>You have successfully updated your profile</p>";

@@ -89,7 +89,7 @@
 ?>
 <?php include "includes/top.php"?>
 <!-- start main coding here -->
-	<div class="container bloodbg justify-content-center">
+	<div class="container justify-content-center">
 		<div class="card-box col-6 col-md p-3 ">
 			<h3 class="text-center">Login to your account</h3>
 			<div class="col-6" style="margin: 0 auto;">

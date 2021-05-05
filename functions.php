@@ -32,4 +32,22 @@
         }
         return $randomString;
     }
+    
+    function escape_string($param) {
+        if(is_array($param))
+            return array_map(__METHOD__, $param);
+    
+        if(!empty($param) && is_string($param)) {
+            return str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $param);
+        }
+    
+        return $param;
+    }
+
+    function cleanUp($value) {
+        $newVal = trim($value);
+        $newVal = htmlspecialchars($newVal);
+        $newVal = escape_string(stripslashes($newVal));
+        return $newVal;
+    }
 ?>

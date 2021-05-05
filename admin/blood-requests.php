@@ -20,7 +20,8 @@
 		}
     }
 
-	$sql = "SELECT * FROM `recipients` WHERE `status` = 0 ORDER BY `date_added` DESC ";
+	//pending
+	$sql = "SELECT * FROM `recipients`";
     $result = mysqli_query($conn, $sql);
     $pending_requests = [];
 	$request =  mysqli_fetch_object($result);
@@ -28,6 +29,7 @@
         while ($entry = mysqli_fetch_object($result)) {
            $pending_requests[] = $entry;
         }
+
 		if(!empty($pending_requests)){
 			foreach($pending_requests as $value){
 				if(!empty($value->email)){
@@ -72,10 +74,10 @@
 		<h3 class="text-center">Blood Recipient Requests</h3>
 		
 		<?php 
-					if(!empty($fail)){
-						echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
-					}
-				?>
+			if(!empty($fail)){
+				echo '<div class="info text-center" style="vertical-align: middle; align-self: center; width: 25% !important; top: 140px;">'.$fail.'</div>';
+			}
+		?>
 		<div class="col-10" style="margin: 0 auto;">
 			<ul class="nav nav-pills nav-fill">
 			  <li class="nav-item">

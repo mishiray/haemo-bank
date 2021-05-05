@@ -66,16 +66,6 @@
 						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email Address" required>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodType" class="">Blood Type</label>
-					    <select class="form-select" id="inputBloodType" name="blood_type" required>
-			                <option value="">Choose...</option>
-			                <option value="o">O</option>
-			                <option value="a">A</option>
-			                <option value="b">B</option>
-			                <option value="ab">AB</option>
-			            </select>
-					</div>
-					<div class="col-sm">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
@@ -100,7 +90,11 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="dateNeeded" class="">Date Neededd</label>
+					    <label for="inputBloodAmount" class="">Blood Amount(ml)</label>
+					    <input type="number" id="inputBloodAmount" class="form-control" placeholder="Enter a number from 200-550" min="200" max="550" name="amount" required>
+					</div>
+					<div class="col-sm">
+					    <label for="dateNeeded" class="">Date Needed</label>
 					    <input type="date" id="dateNeeded" class="form-control" name="date_needed"> 
 					</div>
 					<div class="col-12">

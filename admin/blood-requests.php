@@ -23,7 +23,8 @@
 	$sql = "SELECT * FROM `recipients` WHERE `status` = 0 ORDER BY `date_added` DESC ";
     $result = mysqli_query($conn, $sql);
     $pending_requests = [];
-    if(!empty($result)){
+	$request =  mysqli_fetch_object($result);
+    if(!empty($request)){
         while ($entry = mysqli_fetch_object($result)) {
            $pending_requests[] = $entry;
         }

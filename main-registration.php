@@ -52,12 +52,12 @@
 				$fail .= "<p>You have successfully registered. Please login</p>";
 
 				//insert query to add blood data
-
 				//check if blood data with email exists
 				$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
 				//perform query 
 				$result = mysqli_query($conn, $sql);
-				if(!empty($result)){
+				$request =  mysqli_fetch_object($result);
+				if(!empty($request)){
 					$query = "UPDATE `blood_data` SET `blood_group` = '$posts->blood_group', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
 					mysqli_query($conn, $query);
 				}else{
@@ -114,8 +114,8 @@
 					    <input type="date" id="inputDob" name="dob" class="form-control" required>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodType" class="">Blood Type</label>
-					    <select class="form-select" id="inputBloodType" name="blood_type" required>
+					    <label for="inputBloodGroup" class="">Blood Group</label>
+					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
 			                <option value="o">O</option>
 			                <option value="a">A</option>
@@ -124,8 +124,8 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodGroup" class="">Blood Group</label>
-					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
+					    <label for="inputBloodType" class="">Blood Type</label>
+					    <select class="form-select" id="inputBloodType" name="blood_type" required>
 			                <option value="">Choose...</option>
 			                <option value="o-plus">O+</option>
 			                <option value="o-minus">O-</option>
@@ -140,7 +140,7 @@
 					<div class="col-sm">
 					    <label for="password" class="">Create Password</label>
 					    <input type="text" id="password" name="password" class="form-control" required>
-					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(6)">Generate Password</button>
+					<button class="btn mt-2 w-25 btn-warning" type="button" onclick="genPassword(8)">Generate Password</button>
 					</div>
 				</div>
 				<?php 

@@ -22,7 +22,6 @@
 				//select donors that are available givesTo
 				$range = givesTo($blood_type);
 				$range = implode("', '", $range);
-				//$sql = "SELECT d.id as id, d.name as name, b.blood_group as blood_group, b.blood_type as blood_type, d.date_added as date_added FROM `donor` as d INNER JOIN `blood_data` as b ON d.email = b.email WHERE b.blood_type = '$blood_type' AND d.status = 1 ";
 				$sql = "SELECT d.id as id, d.name as name, b.blood_group as blood_group, b.blood_type as blood_type, d.date_added as date_added FROM `donor` as d INNER JOIN `blood_data` as b ON d.email = b.email WHERE b.blood_type IN ('$range') AND d.status = 1 ";
 				$result = mysqli_query($conn, $sql);
 				$donors = [];
@@ -47,6 +46,7 @@
 		if( mysqli_query($conn, $sql)){
 			$fail = "Request has been approved";
 			logger($userinfo->email,"assign-donor","transact");
+
 			//update donor and recipient tables
 			$sql = "UPDATE `donor` SET `status` = 3 WHERE `id` = '$posts->donor_id' ";
 			$sql2 = "UPDATE `recipients` SET `status` = 3 WHERE `id` = '$posts->request_id' ";

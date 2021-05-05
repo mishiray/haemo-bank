@@ -13,7 +13,7 @@
 				</div>
 				<div class="main-text">
 					<p>
-						Haemo Bank is a project developed by group 4 in year 4 of computer science department. <br>
+						Haemo Pool is a project developed by group 4 in year 4 of computer science department. <br>
 						The basic walk-around is to create a blood bank management system that allows the organization to easi;y manage the information of those who donates or receives blood.
 					</p>
 					<p>

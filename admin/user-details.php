@@ -105,27 +105,27 @@
 			            </select>
 					</div>
 					<div class="col-sm">
-					    <label for="inputBloodType" class="">Blood Type</label>
-					    <select class="form-select" id="inputBloodType" name="blood_type" required>
-			                <option value="">Choose...</option>
-			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'o')? 'selected' : '' : '' ?> value="o">O</option>
-			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'a')? 'selected' : '' : ''?> value="a">A</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type ==  'b')? 'selected' : '' : '' ?> value="b">B</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'ab')? 'selected' : '' : ''?> givalue="ab">AB</option>
-			            </select>
-					</div>
-					<div class="col-sm">
 					    <label for="inputBloodGroup" class="">Blood Group</label>
 					    <select class="form-select" id="inputBloodGroup" name="blood_group" required>
 			                <option value="">Choose...</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'o-plus') ? 'selected' : '' : ''?> value="o-plus">O+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'o-minus') ? 'selected' : '' : ''?> value="o-minus">O-</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a-plus') ? 'selected' : '' : '' ?> value="a-plus">A+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a-minus') ? 'selected' : ''  : ''?> value="a-minus">A-</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-plus') ? 'selected' : ''  : ''?> value="b-plus">B+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'b-minus') ? 'selected' : ''  : ''?> value="b-minus">B-</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-plus') ? 'selected' : ''  : ''?> value="ab-plus">AB+</option>
-			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab-minus') ? 'selected' : ''  : ''?> value="ab-minus">AB-</option>
+			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'o')? 'selected' : '' : '' ?> value="o">O</option>
+			                <option  <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'a')? 'selected' : '' : ''?> value="a">A</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group ==  'b')? 'selected' : '' : '' ?> value="b">B</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_group == 'ab')? 'selected' : '' : ''?> givalue="ab">AB</option>
+			            </select>
+					</div>
+					<div class="col-sm">
+					    <label for="inputBloodType" class="">Blood Type</label>
+					    <select class="form-select" id="inputBloodType" name="blood_type" required>
+			                <option value="">Choose...</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'o-plus') ? 'selected' : '' : ''?> value="o-plus">O+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'o-minus') ? 'selected' : '' : ''?> value="o-minus">O-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'a-plus') ? 'selected' : '' : '' ?> value="a-plus">A+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'a-minus') ? 'selected' : ''  : ''?> value="a-minus">A-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'b-plus') ? 'selected' : ''  : ''?> value="b-plus">B+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'b-minus') ? 'selected' : ''  : ''?> value="b-minus">B-</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'ab-plus') ? 'selected' : ''  : ''?> value="ab-plus">AB+</option>
+			                <option <?php echo (!empty($blood_data)) ? ($blood_data->blood_type == 'ab-minus') ? 'selected' : ''  : ''?> value="ab-minus">AB-</option>
 			            </select>
 					</div>
 				</div>

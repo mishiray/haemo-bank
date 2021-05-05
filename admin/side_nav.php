@@ -1,7 +1,7 @@
 
 	<div class="sidenav p-3 text-white bg-dark" style="width: 20vw; min-height: 100vh;">
 	  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-	    <span class="fs-4">Admin Dashboard</span>
+	    <span class="fs-4"><?php echo ucwords($userinfo->name); ?>  Dashboard</span>
 	  </a>
 	  <ul class="nav nav-pills flex-column mb-auto">
 	    <li class="nav-item">

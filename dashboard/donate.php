@@ -3,13 +3,13 @@
 	$title = "Donate Blood";
 
 	//check if submit
-	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'donate'){
 		$sql = "INSERT INTO `donor` (`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`status`,`date_added`) VALUES 
 								('$userinfo->name','$userinfo->phone','$userinfo->gender','$userinfo->dob','$userinfo->email','$userinfo->address','$posts->amount',0,'$posts->date_added')";
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "Appointment has been booked";
+			logger($userinfo->email,"book-donate","donor");
 		}else{
 			$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
 
@@ -41,6 +41,7 @@
 					}
 				?>
 			</form>
+			<button class='w-50 mt-2 btn btn-maroon btn-lg' onclick='goBack()'>Back</button>
 		</div>
 	</div>
 <!-- end here-->

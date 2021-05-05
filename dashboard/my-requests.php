@@ -109,6 +109,7 @@
 							?>
 					  </tbody>
 				</table>
+			<button class='w-50 mt-2 btn btn-success btn-lg' onclick='goBack()'>Back</button>
 			</div>
 		</div>
 	</div>

@@ -9,6 +9,7 @@
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "New Donor has been added";
+			logger($userinfo->email,"register-donor","donor");
 
 			//check if blood data with email exists
 			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";

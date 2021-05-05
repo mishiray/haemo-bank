@@ -37,6 +37,7 @@
 			}
 
 			if(mysqli_query($conn, $query1) and mysqli_query($conn, $query2)){
+				logger($userinfo->email,"update-profile","userprofile");
 				$sql = "SELECT * FROM `userprofile` WHERE `email` = '$userinfo->email' ";
 				$user_data = mysqli_fetch_object(mysqli_query($conn, $sql));                    
 				$_SESSION["userinfo"] = $user_data;
@@ -117,7 +118,9 @@
 			}
 		?>
 			    <button class="w-50 mt-2 btn btn-maroon btn-lg" name ='triggers' value="edit_profile" type="submit">Submit</button>
+				
 			</form>
+			<button class='w-50 mt-2 btn btn-success btn-lg' onclick='goBack()'>Back</button>
 		</div>
 	</div>
 <?php include 'buttom.php';

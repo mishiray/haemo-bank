@@ -27,6 +27,7 @@
 		$sql = "UPDATE `donor` SET `status` = 1 WHERE `id` = '$posts->donor_id' ";
 		if(mysqli_query($conn, $sql)){
 			$fail = "Donor has been approved";
+			logger($userinfo->email,"approve-donor","donor");
 		
 		}else{
 			$fail = "Error, Try again ".mysqli_error($conn);

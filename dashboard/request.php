@@ -11,6 +11,7 @@
 
 		if( mysqli_query($conn, $sql)){
 			$fail = "New request has been added";
+			logger($userinfo->email,"book-request","recpient");
 		}else{
 			$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
 		}
@@ -44,6 +45,7 @@
 				?>
 			    <button class="w-100 mt-2 btn btn-primary btn-lg" type="submit" name="triggers" value="request_blood">Submit</button>
 			</form>
+			<button class='w-50 mt-2 btn btn-success btn-lg' onclick='goBack()'>Back</button>
 		</div>
 	</div>
 	<?php include 'buttom.php';

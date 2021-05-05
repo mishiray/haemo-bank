@@ -4,31 +4,40 @@
 
 	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'add_recipient'){
-		$token  = stringGen(6);
-		$sql = "INSERT INTO `recipients` (`token`,`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
-								('$token','$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
+		$err = 0;
+		$fail = '';
+		
+		if(!empty($posts->date_needed) && strtotime($posts->date_needed) < time()){
+			$err++;
+			$fail .= 'Invalid date selected. Please choose a date in the future';
+		}
 
-		if( mysqli_query($conn, $sql)){
-			$fail = "New request has been added";
-			logger($userinfo->email,"register-recipient","recipient");
-
-			//check if blood data with email exists
-			$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
-			//perform query 
-			$result = mysqli_query($conn, $sql);
-			$result = mysqli_fetch_object($result);
-			if(!empty($result)){
-				$query = "UPDATE `blood_data` SET `blood_group` = '$posts->blood_group',`blood_test` = '$posts->blood_test', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
-				mysqli_query($conn, $query);
+		if($err == 0){
+			$token  = stringGen(6);
+			$sql = "INSERT INTO `recipients` (`token`,`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
+									('$token','$posts->name','$posts->phone','$posts->gender','$posts->dob','$posts->email','$posts->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
+	
+			if( mysqli_query($conn, $sql)){
+				$fail = "New request has been added";
+				logger($userinfo->email,"register-recipient","recipient");
+	
+				//check if blood data with email exists
+				$sql = "SELECT * FROM `blood_data` WHERE `email` = '$posts->email' ";
+				//perform query 
+				$result = mysqli_query($conn, $sql);
+				$result = mysqli_fetch_object($result);
+				if(!empty($result)){
+					$query = "UPDATE `blood_data` SET `blood_group` = '$posts->blood_group',`blood_test` = '$posts->blood_test', `blood_type` = '$posts->blood_type' WHERE `email` = '$posts->email'";
+					mysqli_query($conn, $query);
+				}else{
+					$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
+					('$posts->email','$posts->blood_group','$posts->blood_type',1)";
+					mysqli_query($conn, $query2);
+				}
+				
 			}else{
-				$query2 = "INSERT INTO `blood_data` (`email`,`blood_group`, `blood_type`,`status`) VALUES 
-				('$posts->email','$posts->blood_group','$posts->blood_type',1)";
-				mysqli_query($conn, $query2);
+				$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
 			}
-			
-		}else{
-			$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
-
 		}
 	
 	}

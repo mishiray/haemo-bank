@@ -5,15 +5,33 @@
 
 	//check if submit
 	if($_SERVER['REQUEST_METHOD'] == 'POST' and $posts->triggers == 'request_blood'){
-		$token  = stringGen(6);
-		$sql = "INSERT INTO `recipients` (`token`,`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
-								('$token','$userinfo->name','$userinfo->phone','$userinfo->gender','$userinfo->dob','$userinfo->email','$userinfo->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
-		//echo $sql;
-		if( mysqli_query($conn, $sql)){
-			$fail = "New request has been added";
-			logger($userinfo->email,"book-request","recpient");
-		}else{
-			$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
+		$fail = '';
+		$err = 0;
+
+		if(!empty($posts->date_needed) && strtotime($posts->date_needed) < time()){
+			$err++;
+			$fail .= 'Invalid date selected. Please choose a date in the future';
+		}
+		if(empty($posts->date_needed)){
+			$err++;
+			$fail .= 'Please choose a date';
+		}
+		if(empty($posts->amount)){
+			$err++;
+			$fail .= 'Please select a valid amount';
+		}
+
+		if($err == 0){
+			$token  = stringGen(6);
+			$sql = "INSERT INTO `recipients` (`token`,`name`,`phone`,`gender`,`dob`, `email`, `address`,`blood_amount`,`date_needed`,`purpose`,`status`) VALUES 
+									('$token','$userinfo->name','$userinfo->phone','$userinfo->gender','$userinfo->dob','$userinfo->email','$userinfo->address','$posts->amount','$posts->date_needed','$posts->purpose',0)";
+			
+			if( mysqli_query($conn, $sql)){
+				$fail = "New request has been added";
+				logger($userinfo->email,"book-request","recpient");
+			}else{
+				$fail .= "<p> Unable to register. Please try again <br> ".mysqli_error($conn)."</p>";
+			}
 		}
 	
 	}
